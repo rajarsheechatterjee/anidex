@@ -1,0 +1,334 @@
+            <!-- <% data["related"].forEach(function(relatedanime){ %> -->
+
+
+            <!-- <% data.related.Adaptation.forEach(function(relatedanime){ %>
+                <a href="/manga/<%= relatedanime["mal_id"] %>>
+                    <%= relatedanime["title"] %>
+                </a>
+            <% }); %> -->
+
+            
+
+<!-- <% data["related"].forEach(function(relatedanime){ %>
+    <% relatedanime["Adaptation"].forEach(function(adap){ %>
+        <%= adap["title"] %>
+    <% }) %>
+<% }) %> -->
+
+
+for(var i = 0; i < myJSONObject.abc.length; i++)
+{
+    var product = myJSONObject.abc[i];
+    for(var j = 0; j < product.length; j++)
+    {
+        var version = product[j];
+    }
+}
+<a href=""><%= adap["title"] %></a>
+
+
+
+Loop
+
+            <% for(var i = 0; i < data.related.length; i++){ %>
+                <% var rel = data.related[i]; %>
+                <% for(var j = 0; j < rel.length; j++){ %>
+                    <% var adap = rel[j] %>
+                    <a href="#"><%= adap["title"] %></a>
+                <% } %>
+            <% } %>
+
+
+    <!-- <div>
+        <img src="<%= data.image_url %>" style="float: left; margin-right: 20px; margin-top: 15px;" alt="Anime Poster" >
+        <div style="margin-top: 15px;">
+            <h5>Synopsis</h5>
+            <div>
+                <hr style="margin-top: 10px; margin-bottom: 10px; width: 75%; float: left;">
+                <br>
+            </div>
+            <p>
+                <%= data.synopsis %>
+            </p>
+        </div>
+    </div> -->
+
+
+
+
+    <!-- <div>
+        <h5>Related Anime</h5>
+        <hr>
+        <div>
+            <strong>Adaptation</strong>
+            <%  if ( data.type = "TV") { %>
+            <% data.related.Adaptation.forEach(function(adap){ %>
+                <a href="/manga/<%= adap["mal_id"] %>">
+                    <div style="margin-top: 7px;">
+                        <%= adap["name"] %>
+                    </div>
+                </a>
+            <% }); %>
+            <% } %>
+        </div>
+
+        <div>
+            <strong>Side Stories</strong>
+                <div style="margin-top: 7px;">
+                    <% if (data.type = "TV"){ %>
+                        <% data.related["Side story"].forEach(function(sidestory){ %>
+                            <a href="/anime/<%= sidestory["mal_id"] %>">
+                                <%= sidestory["name"] %>,
+                            </a>
+                            <% }); %>
+                    <% } else if (data.type = "Movie"){  %>
+                        <% data.related["Parent story"].forEach(function(parentstory){ %>
+                        <a href="/anime/<%= parentstory["mal_id"] %>">
+                            <%= parentstory["name"] %>,
+                        </a>
+                        <% }); %>
+                    <% } %>
+                </div>
+        </div>
+    </div> -->
+
+
+
+
+ <div>
+        <h5>Related Anime</h5>
+        <hr>
+        <div>
+            <%  if ( data.type = "TV") { %>
+            <strong>Adaptation</strong>
+            <% data.related.Adaptation.forEach(function(adap){ %>
+                <a href="/manga/<%= adap["mal_id"] %>">
+                    <div style="margin-top: 7px;">
+                        <%= adap["name"] %>
+                    </div>
+                </a>
+            <% }); %>
+            <% } else if ( data.type = "Movie"){ %>
+            <strong>Parent Story</strong>
+            <% data.related["Parent story"].forEach(function(parentstory){ %>
+                <a href="/manga/<%= parentstory["mal_id"] %>">
+                    <div style="margin-top: 7px;">
+                        <%= parentstory["name"] %>
+                    </div>
+                </a>
+            <% }); %>
+            <% } else if ( data.type = "TV"){ %>
+                <strong>Parent Story</strong>
+                <% data.related["Prequel"].forEach(function(prequel){ %>
+                    <a href="/manga/<%= prequel["mal_id"] %>">
+                        <div style="margin-top: 7px;">
+                            <%= prequel["name"] %>
+                        </div>
+                    </a>
+                <% }); %>
+                <% } %>
+        </div>
+
+        <div>
+            <strong>Side Stories</strong>
+                <div style="margin-top: 7px;">
+                    <% if (data.type = "TV"){ %>
+                        <% data.related["Side story"].forEach(function(sidestory){ %>
+                            <a href="/anime/<%= sidestory["mal_id"] %>">
+                                <%= sidestory["name"] %>,
+                            </a>
+                            <% }); %>
+                    <% } else if (data.type = "Movie"){  %>
+                        <% data.related["Parent story"].forEach(function(parentstory){ %>
+                        <a href="/anime/<%= parentstory["mal_id"] %>">
+                            <%= parentstory["name"] %>,
+                        </a>
+                        <% }); %>
+                    <% } %>
+                </div>
+        </div>
+    </div>
+    
+
+        <div style="margin-top: 20px;">
+        <h5>Opening Themes</h5>
+        <hr style="margin-top: 10px; margin-bottom: 10px;">
+        <p>
+            <% for( var i = 0; i< data.opening_themes; i++){ %>
+            <a href=""><%= data.opening_themes["i"] %></a>
+            <% } %>
+        </p>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div>
+        <% const studio = data && data.related ? data.related["studios"] : null; %>
+        <h5>Studio</h5>
+        <hr style="margin-top: 10px; margin-bottom: 10px;">
+            <%= data.related.studios %>
+    </div>
+
+
+
+    <!-- <h3>Monday</h3>
+<% data["monday"].forEach(function(day) {%>
+    <li><a href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a></li>
+<% }) %>
+
+<h3>Tuesday</h3>
+<% data["tuesday"].forEach(function(day) {%>
+    <li><a href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a></li>
+<% }) %>
+
+<h3>Wednesday</h3>
+<% data["wednesday"].forEach(function(day) {%>
+    <li><a href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a></li>
+<% }) %>
+
+<h3>Thursday</h3>
+<% data["thursday"].forEach(function(day) {%>
+    <li><a href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a></li>
+<% }) %>
+
+<h3>Friday</h3>
+<% data["friday"].forEach(function(day) {%>
+    <li><a href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a></li>
+<% }) %>
+
+<h3>Saturday</h3>
+<% data["saturday"].forEach(function(day) {%>
+    <li><a href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a></li>
+<% }) %>
+
+<h3>Sunday</h3>
+<% data["sunday"].forEach(function(day) {%>
+    <li><a href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a></li>
+<% }) %> -->
+
+
+
+
+
+
+
+
+
+
+<h3>Sunday</h3>
+<div class="row" style="display: flex; flex-wrap: wrap;">
+    <% data["sunday"].forEach(function(day) {%>
+        <div class="col-md-3 col-sm-6">
+            <div class="thumbnail">
+                <img src="<%= day["image_url"] %>">
+                <div class="caption">
+                    <h4><%= day["title"] %></h4>
+                </div>
+                <p>
+                    <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                </p>
+            </div>
+        </div>
+    <% }) %>     
+</div>
+<h3>Monday</h3>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% data["monday"].forEach(function(day) {%>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= day["image_url"] %>">
+                    <div class="caption">
+                        <h4><%= day["title"] %></h4>
+                    </div>
+                    <p>
+                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <% }) %>     
+    </div>
+    <h3>Tuesday</h3>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% data["tuesday"].forEach(function(day) {%>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= day["image_url"] %>">
+                    <div class="caption">
+                        <h4><%= day["title"] %></h4>
+                    </div>
+                    <p>
+                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <% }) %>     
+    </div>
+    <h3>Wednesday</h3>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% data["wednesday"].forEach(function(day) {%>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= day["image_url"] %>">
+                    <div class="caption">
+                        <h4><%= day["title"] %></h4>
+                    </div>
+                    <p>
+                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <% }) %>     
+    </div><h3>Thursday</h3>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% data["thursday"].forEach(function(day) {%>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= day["image_url"] %>">
+                    <div class="caption">
+                        <h4><%= day["title"] %></h4>
+                    </div>
+                    <p>
+                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <% }) %>     
+    </div><h3>Friday</h3>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% data["friday"].forEach(function(day) {%>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= day["image_url"] %>">
+                    <div class="caption">
+                        <h4><%= day["title"] %></h4>
+                    </div>
+                    <p>
+                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <% }) %>     
+    </div><h3>Saturday</h3>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% data["saturday"].forEach(function(day) {%>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= day["image_url"] %>">
+                    <div class="caption">
+                        <h4><%= day["title"] %></h4>
+                    </div>
+                    <p>
+                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                    </p>
+                </div>
+            </div>
+        <% }) %>     
+    </div><h3>Sunday</h3>
+    
+</div>

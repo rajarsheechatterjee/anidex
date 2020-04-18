@@ -1,0 +1,84 @@
+<%- include("./partials/header") %>
+
+<div class="container" style="margin-top: 15px;">
+    <h3 style="margin-top: 30px;"><%= currentUser.username %>'s Anime List</h3>
+
+    <div class="media" style="margin-top: 20px;">
+        <img class="align-self-center mr-3" src="<%= data.image_url %>" alt="Generic placeholder image">
+        <div class="media-body">
+            <% if( data.background != null ){ %>
+                <h5 class="mt-0">Bio</h5>
+                <hr style="margin-top: 10px; margin-bottom: 10px;">
+                <p><%= data.about %></p>
+            <% } %>
+            <h4 class="mt-0">Statistics</h4>
+            <hr style="margin-top: 10px; margin-bottom: 10px;">
+            <div style="margin-top: 20px;">
+                <h5 class="mt-0">Anime Stats</h5>
+                <hr style="margin-top: 5px; margin-bottom: 5px;">
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            Days: <h6 style="display: inline-block;"><%= data.anime_stats.days_watched %></h6>
+                            <br>
+                            <br>
+                            Watching <h6 style="display: inline-block;"><%= data.anime_stats.watching %></h6>
+                            <br>
+                            Completed <h6 style="display: inline-block;"><%= data.anime_stats.completed %></h6>
+                            <br>
+                            On Hold <h6 style="display: inline-block;"><%= data.anime_stats.on_hold %></h6>
+                            <br>
+                            Plan to Watch <h6 style="display: inline-block;"><%= data.anime_stats.plan_to_watch %></h6>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            Mean Score: <h6 style="display: inline-block;"><%= data.anime_stats.mean_score %></h6>
+                            <br>
+                            <br>
+                            Total Entries <h6 style="display: inline-block;"><%= data.anime_stats.total_entries %></h6>
+                            <br>
+                            Rewatched <h6 style="display: inline-block;"><%= data.anime_stats.rewatched %></h6>
+                            <br>
+                            Episodes <h6 style="display: inline-block;"><%= data.anime_stats.episodes_watched %></h6>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 20px;">
+                <h5 class="mt-0" >Manga Stats</h5>
+                <hr style="margin-top: 5px; margin-bottom: 5px;">
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            Days: <h6 style="display: inline-block;"><%= data.manga_stats.days_read %></h6>
+                            <br>
+                            Reading <h6 style="display: inline-block;"><%= data.manga_stats.reading %></h6>
+                            <br>
+                            Completed <h6 style="display: inline-block;"><%= data.manga_stats.completed %></h6>
+                            <br>
+                            On Hold <h6 style="display: inline-block;"><%= data.manga_stats.on_hold %></h6>
+                            <br>
+                            Plan to Read <h6 style="display: inline-block;"><%= data.manga_stats.plan_to_watch %></h6>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            Mean Score: <h6 style="display: inline-block;"><%= data.manga_stats.mean_score %></h6>
+                            <br>
+                            Total Entries <h6 style="display: inline-block;"><%= data.manga_stats.total_entries %></h6>
+                            <br>
+                            Reread <h6 style="display: inline-block;"><%= data.manga_stats.reread %></h6>
+                            <br>
+                            Chapters <h6 style="display: inline-block;"><%= data.manga_stats.chapters_read %></h6>
+                            <br>
+                            Volumes <h6 style="display: inline-block;"><%= data.manga_stats.volumes_read %></h6>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

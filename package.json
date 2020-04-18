@@ -1,0 +1,27 @@
+{
+  "name": "anidex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rajarshee Chatterjee",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "jikan-node": "^1.2.0",
+    "mal-scraper": "^2.6.8",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.5",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.0.1",
+    "request": "^2.88.2",
+    "save": "^2.4.0"
+  }
+}

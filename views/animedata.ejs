@@ -1,0 +1,194 @@
+<!-- Displays data of a anime -->
+
+<%- include("./partials/header") %>
+
+<div class="container" style="margin-top: 15px;">
+    <div>
+        <h3 style="margin-top: 30px;">
+            <%= data.title %>
+        </h3>
+    </div>
+    
+    <div class="media" style="margin-top: 20px;">
+        <img class="align-self-center mr-3" src="<%= data.image_url %>" alt="Generic placeholder image">
+        <div class="media-body">
+            <h5 class="mt-0" style="display: inline-block;">Synopsis</h5>
+            <% if( data.score != null && data.score != '0' ){ %>
+            <h5 style="float: right;">
+                Rating <%= data.score %>
+            </h5>
+            <% } %>
+            <hr>
+            <p><%= data.synopsis %>
+            <% if( data["type"] === 'TV'){ %>
+                <br>
+                <a href="/anime/<%= data.mal_id %>/episodes">List Of Episodes</a>
+            <% } %>
+            </p>
+        </div>
+    </div>
+    <div style="margin-top: 20px; margin-bottom: 10px;">
+        <% if( data.background != null ){ %>
+        <h5>Background</h5>
+        <hr style="margin-top: 10px; margin-bottom: 10px;">
+        <p>
+            <%= data.background %>
+        </p>
+        <% } %>
+        <h5>Recommendations</h5>
+        <hr style="margin-top: 10px; margin-bottom: 10px;">   
+        <a href="/anime/<%= data.mal_id %>/recommendations">If you like this then you may like these</a>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div>
+                <h5>Information</h5>
+                <hr style="margin-top: 10px; margin-bottom: 10px;">
+                <p>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Type</h6>: <%= data.type %>
+                    <br>
+                    <% if( data["type"] === 'TV'){ %>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Episodes</h6>: 
+                        <%= data.episodes %>
+                    <br>
+                    <% } %>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Status</h6>: <%= data.status %>
+                    <br>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Aired</h6>: <%= data.aired.string %>
+                    <br>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Premiered</h6>: <%= data.premiered %>
+                    <br>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Studios</h6>: 
+                    <% data["studios"].forEach(function(studio){ %>    
+                        <%= studio.name %>
+                    <% }) %>
+                    <br>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Broadcast</h6>: <%= data.broadcast %>
+                    <br>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Producers</h6>: 
+                    <% data["producers"].forEach(function(prdcrs){ %>
+                        <%= prdcrs["name"] %>
+                    <% }) %>
+                    <br>
+                    <% if( data.licensors != null ){ %>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Licensors</h6>: 
+                        <% data["licensors"].forEach(function(lcrs){ %>
+                            <%= lcrs["name"] %>
+                        <% }) %>
+                    <br>
+                    <% } %>
+                </p>
+                <h5>Statistics</h5>
+                <hr style="margin-top: 10px; margin-bottom: 10px;">
+                <p>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Score</h6>: <%= data.score %> (Scored by <%= data.scored_by %> users)
+                    <br>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Ranked</h6>: #<%= data.rank %>
+                    <br>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Popularity</h6>: <%= data.popularity %>
+                    <br>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Members</h6>: <%= data.members %>
+                    <br>
+                    <% if( data.favourites != null ){ %>
+                    <h6 style="display: inline-block; margin-bottom: 7px;">Favourites</h6>: 
+                        <%= data.favourites %>
+                    <br>
+                    <% } %>
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <% if( typeof data.related["Adaptation"] != 'undefined'){ %>
+                <div>
+                    <h5>Adaptation</h5>
+                    <hr style="margin-top: 10px; margin-bottom: 10px;">
+                    <p>
+                        <% data.related["Adaptation"].forEach(function(adap){ %>
+                            <a href="/manga/<%= adap["mal_id"] %>">
+                                <%= adap["name"] %> <br>
+                            </a>
+                            <% }) %>
+                    </p>
+                </div>
+            <% } %>
+            <% if( typeof data.related["Parent story"] != 'undefined'){ %>
+            <div>
+                <h5>Parent Stories</h5>
+                <hr style="margin-top: 10px; margin-bottom: 10px;">
+                <p>
+                    <% data.related["Parent story"].forEach(function(parent){ %>
+                        <a href="/anime/<%= parent["mal_id"] %>">
+                            <%= parent["name"] %>
+                        </a>
+                    <% }) %>
+                </p>
+            </div>
+            <% } %>
+            <% if( typeof data.related["Prequel"] != 'undefined'){ %>
+            <div>
+                <h5>Prequel</h5>
+                <hr style="margin-top: 10px; margin-bottom: 10px;">
+                <p>
+                    <% data.related["Prequel"].forEach(function(prequel) { %>
+                        <a href="/anime/<%= prequel["mal_id"] %>"> <%= prequel["name"] %> </a>
+                    <% }) %>
+                </p>
+            </div>
+            <% } %>
+            <% if( typeof data.related["Sequel"] != 'undefined'){ %>
+            <div>
+                <h5>Sequel</h5>
+                <hr style="margin-top: 10px; margin-bottom: 10px;">
+                <p>
+                    <% data.related["Sequel"].forEach(function(sequel) { %>
+                        <a href="/anime/<%= sequel["mal_id"] %>"> <%= sequel["name"] %> </a>
+                    <% }) %>
+                </p>
+            </div>
+            <% } %>
+            <% if( typeof data.related["Side story"] != 'undefined'){ %>
+            <div>
+                <h5>Side Stories</h5>
+                <hr style="margin-top: 10px; margin-bottom: 10px;">
+                <p>
+                    <% data.related["Side story"].forEach(function(story){ %>
+                        <a href="/anime/<%= story["mal_id"] %>">
+                            <%= story["name"] %> <br>
+                        </a>
+                        <% }) %>
+                </p>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+
+    
+
+    <div class="row">
+        <div class="col">
+            <div style="margin-top: 20px;">
+                <h5>Opening Themes</h5>
+                <hr style="margin-top: 10px; margin-bottom: 10px;">
+                <p>
+                    <%= data.opening_themes %>
+                </p>
+            </div>
+        </div>
+        <div class="col">
+            <div style="margin-top: 20px;">
+                <h5>Ending Themes</h5>
+                <hr style="margin-top: 10px; margin-bottom: 10px;">
+                <p>
+                    <%= data.ending_themes %>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+</div>
