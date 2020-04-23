@@ -39,15 +39,20 @@ app.use(function(req, res, next){
     next();
 });
 
-
 //================================================================ INDEX PAGE =================================================================
 
 app.get("/", function(req, res){
+    res.render("index");
+});
+
+//================================================================ CURRENT SEASON PAGE =================================================================
+
+app.get("/season/2020/spring", function(req, res){
     var season_url = "https://api.jikan.moe/v3/season/2020/spring";
     request(season_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("index", {data: data});
+            res.render("currentseason", {data: data});
         }
     });
 });
@@ -64,14 +69,41 @@ app.get("/schedule", function(req, res){
     });
 });
 
+//============================================================ SEASON ARCHIVE PAGE =============================================================
+
+app.get("/season/archive", function(req, res){
+    var schedule_url = "https://api.jikan.moe/v3/season/archive";
+    request(schedule_url, function(error, response, body){
+        if(!error && response.statusCode == 200){
+            var data = JSON.parse(body);
+            res.render("seasonarchive", {data: data});
+        }
+    });
+});
+
+//============================================================ SEASONS ANIME PAGE =============================================================
+
+app.get("/season/:year/:season", function(req, res){
+    var year = req.params.year;
+    var season = req.params.season;
+    var schedule_url = "https://api.jikan.moe/v3/season/" + year + "/" + season;
+    request(schedule_url, function(error, response, body){
+        if(!error && response.statusCode == 200){
+            var data = JSON.parse(body);
+            res.render("seasonanime", {data: data, year: year, season: season});
+        }
+    });
+});
+
 //======================================================== TOP RATED ANIME AND MANGA PAGE =========================================================
 
-app.get("/anime", function(req, res){
-    var url = "https://api.jikan.moe/v3/top/anime";
+app.get("/top/anime/:page", function(req, res){
+    var page = req.params.page;
+    var url = "https://api.jikan.moe/v3/top/anime/" + page;
     request(url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("anime", {data: data});
+            res.render("anime", {data: data, page: page});
         }
     });
 });
@@ -84,6 +116,10 @@ app.get("/manga", function(req, res){
             res.render("manga", {data: data});
         }
     });
+});
+
+app.get("/top/anime/", function(req, res){
+    res.redirect("/top/anime/1");
 });
 
 //============================================================ SEARCH PAGE =============================================================
@@ -156,6 +192,11 @@ app.get("/genre", function(req, res){
     res.render("genre");
 });
 
+app.get("/mangagenre", function(req, res){
+    res.render("genrem");
+});
+
+
 //========================================================= ANIMES IN A GENRE ==========================================================
 
 app.get("/genre/:genre_id", function(req, res){
@@ -165,6 +206,19 @@ app.get("/genre/:genre_id", function(req, res){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
             res.render("genreanime", {data: data, genre_id: genre_id});
+        }
+    });
+});
+
+//========================================================= MANGAS IN A GENRE ==========================================================
+
+app.get("/mangagenre/:genre_id", function(req, res){
+    var genre_id = req.params.genre_id;
+    var genreanime_url = "https://api.jikan.moe/v3/genre/manga/" + genre_id;
+    request(genreanime_url, function(error, response, body){
+        if(!error && response.statusCode == 200){
+            var data = JSON.parse(body);
+            res.render("genremanga", {data: data, genre_id: genre_id});
         }
     });
 });
@@ -216,7 +270,7 @@ app.get("/login", function(req, res){
 
 app.post("/login", passport.authenticate("local", 
 {
-    successRedirect: "/anime",
+    successRedirect: "/top/anime/1",
     failureRedirect: "/login"
 }), function(req, res){
 });
@@ -235,7 +289,7 @@ app.post("/register", function(req, res){
             return res.render("register");
         }
         passport.authenticate("local")(req, res, function(){
-            res.redirect("/anime");
+            res.redirect("/top/anime/1");
         });
     });
 });
@@ -244,7 +298,7 @@ app.post("/register", function(req, res){
 
 app.get("/logout", function(req, res){
     req.logout();
-    res.redirect("/anime");
+    res.redirect("/top/anime/1");
 });
 
 //=========================================================== MIDDLEWARE =====================================================================

@@ -6,8 +6,10 @@
         <link rel="stylesheet" href="/stylesheets/animedata.css">
         <!-- Bootstrap 4 -->
         <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
 
     </head>
     <body>
@@ -21,15 +23,17 @@
                 <ul class="navbar-nav mr-auto">
                     
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/anime" id="navbardrop" data-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" href="top/anime/1" id="navbardrop" data-toggle="dropdown">
                         Anime
                         </a>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/anime">Top Anime</a>
+                        <a class="dropdown-item" href="/top/anime/1">Top Anime</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/genre">Anime Genres</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/schedule">Weekly Schedule</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/season/archive">Season Archive</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -39,10 +43,13 @@
                         <div class="dropdown-menu">
                         <a class="dropdown-item" href="/manga">Top Manga</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/genre">Manga Genres</a>
+                        <a class="dropdown-item" href="/mangagenre">Manga Genres</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/schedule">Weekly Schedule</a>
                         </div>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/season/2020/spring" style="margin-left: 5px;">Seasonal Anime <span class="sr-only">(current)</span></a>
                     </li>
                 </ul>
 
@@ -69,7 +76,7 @@
                         Signed In As <%= currentUser.username %>
                         </a>
                         <div class="dropdown-menu">
-                        <a class="dropdown-item" href="/user/<%= currentUser.username %>/userprofile">Profile</a>
+                        <a class="dropdown-item" href="/user/<%= currentUser.username %>/profile">Profile</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/user/<%= currentUser.username %>/animelist">Anime List</a>
                         <div class="dropdown-divider"></div>

@@ -1,31 +1,5 @@
-<!--  LANDING PAGE  -->
-
 <%- include("./partials/header") %>
 
-<div class="container" style="margin-top: 15px;">
-    <h4 style="margin-top: 25px; margin-bottom: 15px;"><%= data.season_name %> <%= data.season_year %> Anime</h4>
-    <hr>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
-        <% data["anime"].forEach(function(ani){ %>
-            <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
-                <div class="thumbnail">
-                    <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= ani["image_url"] %>">
-                    <div class="caption">
-                        <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= ani["title"] %></h5>
-                        <hr style="margin-bottom: 3px; margin-top: 3px;">
-                    </div>
-                    <% if ( ani["airing_start"] != null){ %>
-                        <h6 style="display: inline-block;">Airing Start: </h6>
-                            <%= ani["airing_start"].substring(0,10) %>
-                    <% } %>
-                        <p class="card-text"><%= ani["synopsis"].substring(0,150) %> ...</p>
-
-                    <% if( ani["source"] != null ){ %>
-                        <h6 style="display: inline-block;">Source: </h6> <%= ani["source"] %><br>
-                    <% } %>
-                        <a href="/anime/<%= ani["mal_id"] %>" class="btn btn-primary">More Info</a>
-                </div>
-            </div>  
-        <% }); %>
-    </div>
+<div class="container" style="vertical-align: middle;">
+    <h1>Index Page</h1>
 </div>

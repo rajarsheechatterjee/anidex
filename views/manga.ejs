@@ -9,7 +9,10 @@
                 <div class="thumbnail">
                     <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= manga["image_url"] %>">
                     <div class="caption">
-                        <h5><%= manga["rank"] %>. <%= manga["title"] %></h5>
+                        <h5 style="margin-bottom: 7px; margin-top: 7px; display: inline-block; vertical-align: middle;"><%= manga["rank"] %>. <%= manga["title"] %></h5>
+                        <% if( manga["end_date"] == null) { %>
+                            <span class="badge badge-primary" style="vertical-align: middle; display: inline-block;">Publishing</span>
+                        <% } %>
                         <hr style="margin-bottom: 3px; margin-top: 3px;">
                     </div>
                     <% if( manga["end_date"] != null ){ %>

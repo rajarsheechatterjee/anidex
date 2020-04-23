@@ -1,0 +1,12 @@
+<%- include("./partials/header") %>
+
+<div>
+    <h1>Season Archive</h1>
+    <% data["archive"].forEach(function(season){ %>
+        <li><%= season["year"] %>
+            <% for (i = 0; i < season.seasons.length; i++) { %>
+            <li><a href="/season/<%= season["year"] %>/<%= season.seasons[i].toLowerCase() %>"><%= season.seasons[i] %></a></li>
+        <% } %>
+        </li>
+    <% }) %>
+</div>

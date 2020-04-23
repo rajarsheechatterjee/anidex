@@ -4,7 +4,7 @@
     <h3 style="margin-top: 25px; margin-bottom: 15px;"><%= data.mal_url.name %></h3>
     <hr>
     <div class="row" style="display: flex; flex-wrap: wrap;">
-        <% data["anime"].forEach(function(ani) { %>
+        <% data["manga"].forEach(function(ani) { %>
             <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
                 <div class="thumbnail">
                     <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= ani["image_url"] %>">
@@ -17,20 +17,13 @@
                             <%= ani["airing_start"].substring(0,10) %>
                     <% } %>
                     <p class="card-text" style="margin-bottom: 5px;"><%= ani["synopsis"].substring(0,150) %> ...</p>
-                    <% if( ani["genres"] != null ){ %>
-                        <h6 style="display: inline-block; line-height: 65%;" style="margin-bottom: 5px;">Genres: </h6> 
-                        <% for( var i = 0; i < ani["genres"].length; i++) { %>
-                            <a href="/genre/<%= ani.genres[i]["mal_id"] %>" class="badge badge-pill badge-info"><%= ani.genres[i]["name"] %></a>
-                        <% } %>
-                        <br>
-                    <% } %>
                     <% if( ani["score"] != null ){ %>
                         <h6 style="display: inline-block;" style="margin-bottom: 5px;">Score: </h6> <%= ani["score"] %><br>
                     <% } %>
                     <% if( ani["source"] != null ){ %>
                         <h6 style="display: inline-block;">Source: </h6> <%= ani["source"] %><br>
                     <% } %>
-                    <a href="/anime/<%= ani["mal_id"] %>" class="btn btn-primary">More Info</a>
+                    <a href="/manga/<%= ani["mal_id"] %>" class="btn btn-primary">More Info</a>
                 </div>
             </div>  
         <% }); %>

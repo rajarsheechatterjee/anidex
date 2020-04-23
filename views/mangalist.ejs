@@ -10,9 +10,12 @@
                     <div class="thumbnail">
                         <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= mng["image_url"] %>">
                         <div class="caption">
-                            <h5 style="margin-bottom: 7px; margin-top: 7px; display: inline-block;"><%= mng["title"] %></h5> 
+                            <h5 style="margin-bottom: 7px; margin-top: 7px; display: inline-block; vertical-align: middle;"><%= mng["title"] %></h5> 
                             <% if( mng["publishing_status"] == 1) { %>
-                                (Publishing)
+                                <span class="badge badge-primary" style="vertical-align: middle; display: inline-block;">Publishing</span>
+                            <% } %>
+                            <% if( mng["publishing_status"] == 2) { %>
+                                <span class="badge badge-success" style="vertical-align: middle; display: inline-block;">Finished</span>
                             <% } %>
                             <hr style="margin-bottom: 3px; margin-top: 3px;">
                         </div>

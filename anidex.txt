@@ -332,3 +332,106 @@ Loop
     </div><h3>Sunday</h3>
     
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%- include("./partials/header") %>
+
+<div class="container" style="margin-top: 15px;">
+    <h4 style="margin-top: 25px; margin-bottom: 15px;"><%= currentUser.username %>'s Anime List</h4>
+    <hr>
+    
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% data["anime"].forEach(function(ani){ %>
+                <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
+                    <div class="thumbnail">
+                        <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= ani["image_url"] %>">
+                        <div class="caption">
+                            <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= ani["title"] %></h5>
+                            <hr style="margin-bottom: 3px; margin-top: 3px;">
+                        </div>
+                            <% if( ani["watching_status"] == 1) { %>
+                                <h6 style="display: inline-block;">Status: </h6> Watching<br>
+                                <% if( ani["watched_episodes"] != null ){ %>
+                                    <h6 style="display: inline-block;">Progress: </h6> <%= ani["watched_episodes"] %>/<%= ani["total_episodes"] %><br>
+                                <% } %>
+                            <% } else if( ani["watching_status"] == 2) { %>
+                                <h6 style="display: inline-block;">Status: </h6> Completed<br>
+                                <h6 style="display: inline-block;">Total Episodes: </h6> <%= ani["total_episodes"] %><br>
+                            <% } else if( ani["watching_status"] == 4) { %>
+                                <h6 style="display: inline-block;">Status: </h6> Dropped<br>
+                            <% } else if( ani["watching_status"] == 6) { %>
+                                <h6 style="display: inline-block;">Status: </h6> Plan To Watch<br>
+                            <% } %>
+                            <h6 style="display: inline-block;">Type: </h6> <%= ani["type"] %><br>
+                            <% if( ani["score"] != null && ani["score"] != '0' ){ %>
+                                <h6 style="display: inline-block;">Your Score: </h6> <%= ani["score"] %><br>
+                            <% } else {%>
+                                <h6 style="display: inline-block;">Your Score: </h6> -<br>
+                            <% } %>
+                                <a href="/anime/<%= ani["mal_id"] %>" class="btn btn-primary">More Info</a>
+                    </div>
+                </div>
+        <% }); %>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Anime datt genre tags
+
+                    <p>
+                        <% for( var i = 0; i < data["genres"].length; i++) { %>
+                            <% if( i != data["genres"].length - 1) { %>
+                                <a href="/genre/<%= data.genres[i]["mal_id"] %>"><%= data.genres[i]["name"] + ','  %></a>
+                            <% } else { %>
+                                <a href="/genre/<%= data.genres[i]["mal_id"] %>"><%= data.genres[i]["name"] %></a>
+                            <% } %>
+                        <% } %>
+                    </p>

@@ -10,7 +10,10 @@
                     <div class="thumbnail">
                         <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= ani["image_url"] %>">
                         <div class="caption">
-                            <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= ani["title"] %></h5>
+                            <h5 style="margin-bottom: 7px; margin-top: 7px; display: inline-block;"><%= ani["title"] %></h5>
+                            <% if( ani["airing_status"] == 1) { %>
+                                <span class="badge badge-primary" style="vertical-align: middle; display: inline-block;">Airing</span>
+                            <% } %>
                             <hr style="margin-bottom: 3px; margin-top: 3px;">
                         </div>
                             <% if( ani["watching_status"] == 1) { %>

@@ -18,13 +18,13 @@
                         <% if( anime["end_date"] != null ){ %>
                             <h6 style="display: inline-block;" style="margin-bottom: 5px;">Aired: </h6> <%= anime["start_date"].substring(0,10) %> to <%= anime["end_date"].substring(0,10) %><br>
                         <% } %>
-                        <% if( anime["score"] != null && anime["score"] != '0' ){ %>
+                        <% if( anime["score"] != null || anime["score"] != '0' ){ %>
                             <h6 style="display: inline-block;">Score: </h6> <%= anime["score"] %><br>
                         <% } %>
-                        <% if( anime["type"] != 'TV' && anime["type"] != 'Movie' && anime["type"] != 'Music' && anime["type"] != 'ONA' ){ %>
-                            <a href="/manga/<%= anime["mal_id"] %>" class="btn btn-primary">More Info</a>
-                        <% } else { %>
+                        <% if( anime["type"] == 'TV' || anime["type"] == 'Movie' || anime["type"] == 'Music' || anime["type"] == 'ONA' || anime["type"] == 'OVA' ){ %>
                             <a href="/anime/<%= anime["mal_id"] %>" class="btn btn-primary">More Info</a>
+                        <% } else { %>
+                            <a href="/manga/<%= anime["mal_id"] %>" class="btn btn-primary">More Info</a>
                         <% } %>
                 </div>
             </div>  
