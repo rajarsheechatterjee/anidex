@@ -8,7 +8,7 @@
         <% data["manga"].forEach(function(mng){ %>
                 <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
                     <div class="thumbnail">
-                        <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= mng["image_url"] %>">
+                        <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= mng["image_url"] %>">
                         <div class="caption">
                             <h5 style="margin-bottom: 7px; margin-top: 7px; display: inline-block; vertical-align: middle;"><%= mng["title"] %></h5> 
                             <% if( mng["publishing_status"] == 1) { %>
@@ -45,7 +45,7 @@
                             <% } else {%>
                                 <h6 style="display: inline-block;">Your Score: </h6> -<br>
                             <% } %>
-                                <a href="/manga/<%= mng["mal_id"] %>" class="btn btn-primary">More Info</a>
+                                <a href="/manga/<%= mng["mal_id"] %>" class="btn btn-info">More Info</a>
                     </div>
                 </div>
         <% }); %>

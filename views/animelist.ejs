@@ -8,9 +8,9 @@
         <% data["anime"].forEach(function(ani){ %>
                 <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
                     <div class="thumbnail">
-                        <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= ani["image_url"] %>">
+                        <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= ani["image_url"] %>">
                         <div class="caption">
-                            <h5 style="margin-bottom: 7px; margin-top: 7px; display: inline-block;"><%= ani["title"] %></h5>
+                            <h5 style="margin-bottom: 7px; margin-top: 7px; display: inline-block; vertical-align: middle;"><%= ani["title"] %></h5>
                             <% if( ani["airing_status"] == 1) { %>
                                 <span class="badge badge-primary" style="vertical-align: middle; display: inline-block;">Airing</span>
                             <% } %>
@@ -35,7 +35,7 @@
                             <% } else {%>
                                 <h6 style="display: inline-block;">Your Score: </h6> -<br>
                             <% } %>
-                                <a href="/anime/<%= ani["mal_id"] %>" class="btn btn-primary">More Info</a>
+                                <a href="/anime/<%= ani["mal_id"] %>" class="btn btn-info">More Info</a>
                     </div>
                 </div>
         <% }); %>

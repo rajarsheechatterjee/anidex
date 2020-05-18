@@ -1,14 +1,15 @@
 <%- include("./partials/header") %>
 <div class="container">
-    <h3 style="margin-top: 25px; margin-bottom: 15px;">Daily Schedule</h3>
+    <h4 style="margin-top: 25px; margin-bottom: 15px;">Daily Schedule</h4>
+    <hr>
 
-<h4>Sunday</h4>
+<h5>Sunday</h5>
 <hr>
 <div class="row" style="display: flex; flex-wrap: wrap;">
     <% data["sunday"].forEach(function(day) {%>
         <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
             <div class="thumbnail">
-                <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
+                <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
                 <div class="caption">
                     <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
                     <hr style="margin-bottom: 3px; margin-top: 3px;">
@@ -20,18 +21,18 @@
                     <% if( day["score"] != null && day["score"] != '0' ){ %>
                         <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
                     <% } %>
-                    <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                    <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
             </div>
         </div>
     <% }) %>     
 </div>
 
-<h4>Monday</h4>
+<h5>Monday</h5>
     <div class="row" style="display: flex; flex-wrap: wrap;">
         <% data["monday"].forEach(function(day) {%>
             <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
                 <div class="thumbnail">
-                    <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
+                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
                     <div class="caption">
                         <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
                         <hr style="margin-bottom: 3px; margin-top: 3px;">
@@ -43,18 +44,18 @@
                         <% if( day["score"] != null && day["score"] != '0' ){ %>
                             <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
                         <% } %>
-                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
                 </div>
             </div>
         <% }) %>     
     </div>
     
-    <h4>Tuesday</h4>
+    <h5>Tuesday</h5>
     <div class="row" style="display: flex; flex-wrap: wrap;">
         <% data["tuesday"].forEach(function(day) {%>
             <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
                 <div class="thumbnail">
-                    <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
+                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
                     <div class="caption">
                         <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
                         <hr style="margin-bottom: 3px; margin-top: 3px;">
@@ -66,18 +67,18 @@
                         <% if( day["score"] != null && day["score"] != '0' ){ %>
                             <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
                         <% } %>
-                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
                 </div>
             </div>
         <% }) %>     
     </div>
 
-    <h4>Wednesday</h4>
+    <h5>Wednesday</h5>
     <div class="row" style="display: flex; flex-wrap: wrap;">
         <% data["wednesday"].forEach(function(day) {%>
             <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
             <div class="thumbnail">
-                <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
+                <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
                 <div class="caption">
                     <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
                     <hr style="margin-bottom: 3px; margin-top: 3px;">
@@ -89,18 +90,18 @@
                     <% if( day["score"] != null && day["score"] != '0' ){ %>
                         <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
                     <% } %>
-                    <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                    <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
             </div>
         </div>
         <% }) %>     
     </div>
     
-    <h4>Thursday</h4>
+    <h5>Thursday</h5>
     <div class="row" style="display: flex; flex-wrap: wrap;">
         <% data["thursday"].forEach(function(day) {%>
             <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
                 <div class="thumbnail">
-                    <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
+                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
                     <div class="caption">
                         <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
                         <hr style="margin-bottom: 3px; margin-top: 3px;">
@@ -112,17 +113,17 @@
                         <% if( day["score"] != null && day["score"] != '0' ){ %>
                             <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
                         <% } %>
-                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
                 </div>
             </div>
         <% }) %>     
     </div>
-    <h4>Friday</h4>
+    <h5>Friday</h5>
     <div class="row" style="display: flex; flex-wrap: wrap;">
         <% data["friday"].forEach(function(day) {%>
             <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
                 <div class="thumbnail">
-                    <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
+                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
                     <div class="caption">
                         <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
                         <hr style="margin-bottom: 3px; margin-top: 3px;">
@@ -134,18 +135,18 @@
                         <% if( day["score"] != null && day["score"] != '0' ){ %>
                             <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
                         <% } %>
-                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
                 </div>
             </div>
         <% }) %>     
     </div>
     
-    <h4>Saturday</h4>
+    <h5>Saturday</h5>
     <div class="row" style="display: flex; flex-wrap: wrap;">
         <% data["saturday"].forEach(function(day) {%>
             <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
                 <div class="thumbnail">
-                    <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
+                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
                     <div class="caption">
                         <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
                         <hr style="margin-bottom: 3px; margin-top: 3px;">
@@ -157,7 +158,7 @@
                         <% if( day["score"] != null && day["score"] != '0' ){ %>
                             <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
                         <% } %>
-                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-primary">More Info</a>
+                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
                 </div>
             </div>
         <% }) %>     

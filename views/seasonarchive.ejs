@@ -1,12 +1,19 @@
 <%- include("./partials/header") %>
 
-<div>
+<div class="container">
     <h1>Season Archive</h1>
+    <div class="row">
     <% data["archive"].forEach(function(season){ %>
-        <li><%= season["year"] %>
-            <% for (i = 0; i < season.seasons.length; i++) { %>
-            <li><a href="/season/<%= season["year"] %>/<%= season.seasons[i].toLowerCase() %>"><%= season.seasons[i] %></a></li>
-        <% } %>
-        </li>
-    <% }) %>
+        <div class="dropdown">
+            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= season["year"] %>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <% for (i = 0; i < season.seasons.length; i++) { %>
+                <a class="dropdown-item" href="/season/<%= season["year"] %>/<%= season.seasons[i].toLowerCase() %>"><%= season.seasons[i] %></a>
+                <% } %>
+            </div>
+          </div>
+          <% }) %>
+    </div>
 </div>

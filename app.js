@@ -21,7 +21,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
 app.use(flash());
 
-// PASSPORT CONFIGURATION
+// Passport Configuration
 app.use(require("express-session")({
     secret: "anidex",
     resave: false,
@@ -42,7 +42,7 @@ app.use(function(req, res, next){
 //================================================================ INDEX PAGE =================================================================
 
 app.get("/", function(req, res){
-    res.render("index");
+    res.redirect("/top/anime/1");
 });
 
 //================================================================ CURRENT SEASON PAGE =================================================================

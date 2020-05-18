@@ -122,8 +122,9 @@
                     <p>
                         <% data.related["Adaptation"].forEach(function(adap){ %>
                             <a href="/manga/<%= adap["mal_id"] %>">
-                                <%= adap["name"] %> <br>
+                                <%= adap["name"] %>
                             </a>
+                            <br>
                             <% }) %>
                     </p>
                 </div>
@@ -148,6 +149,7 @@
                 <p>
                     <% data.related["Prequel"].forEach(function(prequel) { %>
                         <a href="/anime/<%= prequel["mal_id"] %>"> <%= prequel["name"] %> </a>
+                        <br>
                     <% }) %>
                 </p>
             </div>
@@ -159,6 +161,7 @@
                 <p>
                     <% data.related["Sequel"].forEach(function(sequel) { %>
                         <a href="/anime/<%= sequel["mal_id"] %>"> <%= sequel["name"] %> </a>
+                        <br>
                     <% }) %>
                 </p>
             </div>

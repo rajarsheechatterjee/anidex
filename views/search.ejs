@@ -9,7 +9,7 @@
         <% data["results"].forEach(function(anime){ %>
             <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
                 <div class="thumbnail">
-                    <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= anime["image_url"] %>">
+                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= anime["image_url"] %>">
                     <div class="caption">
                         <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= anime["title"] %></h5>
                         <hr style="margin-bottom: 3px; margin-top: 3px;">
@@ -22,9 +22,9 @@
                             <h6 style="display: inline-block;">Score: </h6> <%= anime["score"] %><br>
                         <% } %>
                         <% if( anime["type"] == 'TV' || anime["type"] == 'Movie' || anime["type"] == 'Music' || anime["type"] == 'ONA' || anime["type"] == 'OVA' ){ %>
-                            <a href="/anime/<%= anime["mal_id"] %>" class="btn btn-primary">More Info</a>
+                            <a href="/anime/<%= anime["mal_id"] %>" class="btn btn-info">More Info</a>
                         <% } else { %>
-                            <a href="/manga/<%= anime["mal_id"] %>" class="btn btn-primary">More Info</a>
+                            <a href="/manga/<%= anime["mal_id"] %>" class="btn btn-info">More Info</a>
                         <% } %>
                 </div>
             </div>  

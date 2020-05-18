@@ -23,7 +23,7 @@
                     <% if( obj.genres != null ){ %>
                         <h6 style="display: inline-block; line-height: 65%; margin-bottom: 5px;">Genres: </h6> 
                         <% for( var j = 0; j < obj.genres.length; j++) { %>
-                            <a href="/genre/<%= obj.genres[j]["mal_id"] %>" class="badge badge-pill badge-info"><%= obj.genres[j]["name"] %></a>
+                            <a href="/genre/<%= obj.genres[j]["mal_id"] %>" class="badge badge-info"><%= obj.genres[j]["name"] %></a>
                         <% } %>
                         <br>
                     <% } %>

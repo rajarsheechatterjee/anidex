@@ -20,7 +20,7 @@
                     <% if( ani["genres"] != null ){ %>
                         <h6 style="display: inline-block; line-height: 65%;" style="margin-bottom: 5px;">Genres: </h6> 
                         <% for( var i = 0; i < ani["genres"].length; i++) { %>
-                            <a href="/genre/<%= ani.genres[i]["mal_id"] %>" class="badge badge-pill badge-info"><%= ani.genres[i]["name"] %></a>
+                            <a href="/genre/<%= ani.genres[i]["mal_id"] %>" class="badge badge-info"><%= ani.genres[i]["name"] %></a>
                         <% } %>
                         <br>
                     <% } %>
