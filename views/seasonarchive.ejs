@@ -1,19 +1,22 @@
 <%- include("./partials/header") %>
 
 <div class="container">
-    <h1>Season Archive</h1>
+    <h1 class="mt-3">Season Archive</h1>
+    <hr>
     <div class="row">
     <% data["archive"].forEach(function(season){ %>
-        <div class="dropdown">
-            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= season["year"] %>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <% for (i = 0; i < season.seasons.length; i++) { %>
-                <a class="dropdown-item" href="/season/<%= season["year"] %>/<%= season.seasons[i].toLowerCase() %>"><%= season.seasons[i] %></a>
-                <% } %>
-            </div>
-          </div>
-          <% }) %>
+        <div class="col-md-2 mt-2 mb-2">
+            <div class="dropdown">
+                <button class="btn btn-info dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= season["year"] %>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <% for (i = 0; i < season.seasons.length; i++) { %>
+                    <a class="dropdown-item" href="/season/<%= season["year"] %>/<%= season.seasons[i].toLowerCase() %>"><%= season.seasons[i] %></a>
+                    <% } %>
+                </div>
+              </div>
+        </div>
+    <% }) %>
     </div>
 </div>

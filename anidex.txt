@@ -435,3 +435,160 @@ Anime datt genre tags
                             <% } %>
                         <% } %>
                     </p>
+
+
+
+
+
+
+
+
+
+Readme.md
+
+
+
+
+# Anidex
+Anidex is a unofficial MyAnimeList.net client
+### Top Anime
+![Top Anime](screenshots/topanime.png?raw=true)
+### Top Manga
+![Top Manga](screenshots/topmanga.png?raw=true)
+### Current Season
+![Current Season](screenshots/currentseason.png?raw=true)
+### Search
+![Search](screenshots/search.png?raw=true)
+### Anime Data
+![Anime Data](screenshots/animedata1.png?raw=true)
+![Anime Data](screenshots/animedata2.png?raw=true)
+### Weekly Schedule
+![Weekly Schedule](screenshots/schedule.png?raw=true)
+### Anime List
+![Anime List](screenshots/animelist.png?raw=true)
+### Manga List
+![Manga List](screenshots/mangalist.png?raw=true)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Gemres
+
+<li><a href="/genre/1">Action</a></li>
+<li><a href="/genre/2">Adventure</a></li>
+<li><a href="/genre/3">Cars</a></li>
+<li><a href="/genre/4">Comedy</a></li>
+<li><a href="/genre/5">Dementia</a></li>
+<li><a href="/genre/6">Demons</a></li>
+<li><a href="/genre/7">Mystery</a></li>
+<li><a href="/genre/8">Drama</a></li>
+<li><a href="/genre/9">Ecchi</a></li>
+<li><a href="/genre/10">Fantasy</a></li>
+<li><a href="/genre/11">Game</a></li>
+<li><a href="/genre/12">Hentai</a></li>
+<li><a href="/genre/13">Historical</a></li>
+<li><a href="/genre/14">Horror</a></li>
+<li><a href="/genre/15">Kids</a></li>
+<li><a href="/genre/16">Magic</a></li>
+<li><a href="/genre/17">Martial Arts</a></li>
+<li><a href="/genre/18">Mecha</a></li>
+<li><a href="/genre/19">Music</a></li>
+<li><a href="/genre/20">Parody</a></li>
+<li><a href="/genre/21">Samurai</a></li>
+<li><a href="/genre/22">Romance</a></li>
+<li><a href="/genre/23">School</a></li>
+<li><a href="/genre/24">Sci Fi</a></li>
+<li><a href="/genre/25">Shoujo</a></li>
+<li><a href="/genre/26">Shoujo Ai</a></li>
+<li><a href="/genre/27">Shounen</a></li>
+<li><a href="/genre/28">Shounen Ai</a></li>
+<li><a href="/genre/29">Space</a></li>
+<li><a href="/genre/30">Sports</a></li>
+<li><a href="/genre/31">Super Power</a></li>
+<li><a href="/genre/32">Vampire</a></li>
+<li><a href="/genre/33">Yaoi</a></li>
+<li><a href="/genre/34">Yuri</a></li>
+<li><a href="/genre/35">Harem</a></li>
+<li><a href="/genre/36">Slice Of Life</a></li>
+<li><a href="/genre/37">Supernatural</a></li>
+<li><a href="/genre/38">Military</a></li>
+<li><a href="/genre/39">Police</a></li>
+<li><a href="/genre/40">Psychological</a></li>
+<li><a href="/genre/41">Thriller</a></li>
+<li><a href="/genre/42">Seinen</a></li>
+<li><a href="/genre/43">Josei</a></li>	
+</div>
+
+
+// Mangagenre
+
+<%- include("./partials/header") %>
+<div class="container">
+<h1>Manga Genres</h1>
+
+<li><a href="/mangagenre/1">Action</a></li>
+<li><a href="/mangagenre/2">Adventure</a></li>
+<li><a href="/mangagenre/3">Cars</a></li>
+<li><a href="/mangagenre/4">Comedy</a></li>
+<li><a href="/mangagenre/5">Dementia</a></li>
+<li><a href="/mangagenre/6">Demons</a></li>
+<li><a href="/mangagenre/7">Mystery</a></li>
+<li><a href="/mangagenre/8">Drama</a></li>
+<li><a href="/mangagenre/9">Ecchi</a></li>
+<li><a href="/mangagenre/10">Fantasy</a></li>
+<li><a href="/mangagenre/11">Game</a></li>
+<li><a href="/mangagenre/12">Hentai</a></li>
+<li><a href="/mangagenre/13">Historical</a></li>
+<li><a href="/mangagenre/14">Horror</a></li>
+<li><a href="/mangagenre/15">Kids</a></li>
+<li><a href="/mangagenre/16">Magic</a></li>
+<li><a href="/mangagenre/17">Martial Arts</a></li>
+<li><a href="/mangagenre/18">Mecha</a></li>
+<li><a href="/mangagenre/19">Music</a></li>
+<li><a href="/mangagenre/20">Parody</a></li>
+<li><a href="/mangagenre/21">Samurai</a></li>
+<li><a href="/mangagenre/22">Romance</a></li>
+<li><a href="/mangagenre/23">School</a></li>
+<li><a href="/mangagenre/24">Sci Fi</a></li>
+<li><a href="/mangagenre/25">Shoujo</a></li>
+<li><a href="/mangagenre/26">Shoujo Ai</a></li>
+<li><a href="/mangagenre/27">Shounen</a></li>
+<li><a href="/mangagenre/28">Shounen Ai</a></li>
+<li><a href="/mangagenre/29">Space</a></li>
+<li><a href="/mangagenre/30">Sports</a></li>
+<li><a href="/mangagenre/31">Super Power</a></li>
+<li><a href="/mangagenre/32">Vampire</a></li>
+<li><a href="/mangagenre/33">Yaoi</a></li>
+<li><a href="/mangagenre/34">Yuri</a></li>
+<li><a href="/mangagenre/35">Harem</a></li>
+<li><a href="/mangagenre/36">Slice Of Life</a></li>
+<li><a href="/mangagenre/37">Supernatural</a></li>
+<li><a href="/mangagenre/38">Military</a></li>
+<li><a href="/mangagenre/39">Police</a></li>
+<li><a href="/mangagenre/40">Psychological</a></li>
+<li><a href="/mangagenre/41">Seinen</a></li>
+<li><a href="/mangagenre/42">Josei</a></li>
+<li><a href="/mangagenre/43">Doujinshi</a></li>	
+<li><a href="/mangagenre/44">Gender Bender</a></li>
+<li><a href="/mangagenre/45">Thriller</a></li>	
+</div>
