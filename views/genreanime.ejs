@@ -1,38 +1,47 @@
 <%- include("./partials/header") %>
 
-<div class="container" style="margin-top: 15px;">
-    <h3 style="margin-top: 25px; margin-bottom: 15px;"><%= data.mal_url.name %></h3>
+<div class="container">
+    <h3><%= data.mal_url.name %></h3>
     <hr>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
+    <div class="row mt-1 mx-0">
         <% data["anime"].forEach(function(ani) { %>
-            <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
-                <div class="thumbnail">
-                    <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= ani["image_url"] %>">
-                    <div class="caption">
-                        <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= ani["title"] %></h5>
-                        <hr style="margin-bottom: 3px; margin-top: 3px;">
-                    </div>
-                    <% if ( ani["airing_start"] != null){ %>
-                        <h6 style="display: inline-block;">Airing Start: </h6>
-                            <%= ani["airing_start"].substring(0,10) %>
+            <div class="class anime-entry col-lg-6 border-bottom pl-0 my-1">
+            <div class="rounded anime_cover mr-2">
+                <a href="/anime/<%= ani["mal_id"] %>">
+                    <img src="<%= ani["image_url"] %>" width="100%" alt="anime-cover">
+                </a>
+            </div>
+            <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
+                <a class="ml-1 anime_title text-truncate" href="/anime/<%= ani["mal_id"] %>"><%= ani["title"] %></a>
+            </div>
+            <div>
+                <% if( ani.genres != null ){ %>
+                    <% for( var j = 0; j < ani.genres.length; j++) { %>
+                        <a href="/genre/<%= ani.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= ani.genres[j]["name"] %></a>
                     <% } %>
-                    <p class="card-text" style="margin-bottom: 5px;"><%= ani["synopsis"].substring(0,150) %> ...</p>
-                    <% if( ani["genres"] != null ){ %>
-                        <h6 style="display: inline-block; line-height: 65%;" style="margin-bottom: 5px;">Genres: </h6> 
-                        <% for( var i = 0; i < ani["genres"].length; i++) { %>
-                            <a href="/genre/<%= ani.genres[i]["mal_id"] %>" class="badge badge-info"><%= ani.genres[i]["name"] %></a>
-                        <% } %>
-                        <br>
-                    <% } %>
-                    <% if( ani["score"] != null ){ %>
-                        <h6 style="display: inline-block;" style="margin-bottom: 5px;">Score: </h6> <%= ani["score"] %><br>
-                    <% } %>
-                    <% if( ani["source"] != null ){ %>
-                        <h6 style="display: inline-block;">Source: </h6> <%= ani["source"] %><br>
-                    <% } %>
-                    <a href="/anime/<%= ani["mal_id"] %>" class="btn btn-primary">More Info</a>
-                </div>
-            </div>  
+                <% } %>
+            </div>
+            <ul class="list-inline m-1">
+                <% if( ani["score"] != null || ani["score"] != '0' ){ %>
+                <li class="list-inline-item text-primary">Score (<span><%= ani["score"] %></span>)</li>
+                <% } %>
+                <% ani.producers.forEach(function(studio){ %>
+                <li class="list-inline-item text-success"><%= studio["name"] %></li>
+                <% }) %>
+                <li class="list-inline-item text-secondary">Source: <%= ani["source"] %> 
+                    <% if( ani["episodes"] != null){ %>
+                        | <%= ani["episodes"] %>
+                    <% } %> Eps
+                </li>
+            </ul>
+            <div style="height: 210px; overflow: hidden;">
+                <%= ani["synopsis"].substring(0,400) %>...
+                <br>
+                <% if( ani["airing_start"] != null && ani.type != null){ %>
+                    <span class="text-info"><em><%= ani.type %>- <%= ani["airing_start"].substring(0,10) %></em></span>
+                <% } %>
+            </div>
+        </div>
         <% }); %>
     </div>
 </div>

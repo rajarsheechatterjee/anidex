@@ -2,32 +2,44 @@
 
 <%- include("./partials/header") %>
 
-<div class="container" style="margin-top: 15px;">
-    <h3 style="margin-top: 25px; margin-bottom: 15px;">Search Results</h3>
-    <hr>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
+<div class="container">
+    <h3 style="text-align: center;">Search Results</h3>
+    <div class="row mt-1 mx-0">
         <% data["results"].forEach(function(anime){ %>
-            <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
-                <div class="thumbnail">
-                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= anime["image_url"] %>">
-                    <div class="caption">
-                        <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= anime["title"] %></h5>
-                        <hr style="margin-bottom: 3px; margin-top: 3px;">
-                    </div>
-                        <p class="card-text"><%= anime["synopsis"] %></p>
-                        <% if( anime["end_date"] != null ){ %>
-                            <h6 style="display: inline-block;" style="margin-bottom: 5px;">Aired: </h6> <%= anime["start_date"].substring(0,10) %> to <%= anime["end_date"].substring(0,10) %><br>
-                        <% } %>
-                        <% if( anime["score"] != null || anime["score"] != '0' ){ %>
-                            <h6 style="display: inline-block;">Score: </h6> <%= anime["score"] %><br>
-                        <% } %>
-                        <% if( anime["type"] == 'TV' || anime["type"] == 'Movie' || anime["type"] == 'Music' || anime["type"] == 'ONA' || anime["type"] == 'OVA' ){ %>
-                            <a href="/anime/<%= anime["mal_id"] %>" class="btn btn-info">More Info</a>
-                        <% } else { %>
-                            <a href="/manga/<%= anime["mal_id"] %>" class="btn btn-info">More Info</a>
-                        <% } %>
-                </div>
-            </div>  
+        <div class="class anime-entry col-lg-6 border-bottom pl-0 my-1">
+            <div class="rounded anime_cover mr-2">
+                <% if( anime["type"] == 'TV' || anime["type"] == 'Movie' || anime["type"] == 'Music' || anime["type"] == 'ONA' || anime["type"] == 'OVA' ){ %>
+                <a href="/anime/<%= anime["mal_id"] %>">
+                    <img src="<%= anime["image_url"] %>" width="100%" alt="anime-cover">
+                </a>
+                <% } else { %>
+                <a href="/manga/<%= anime["mal_id"] %>">
+                    <img src="<%= anime["image_url"] %>" width="100%" alt="anime-cover">
+                </a>
+                <% } %>
+            </div>
+            <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
+                <% if( anime["type"] == 'TV' || anime["type"] == 'Movie' || anime["type"] == 'Music' || anime["type"] == 'ONA' || anime["type"] == 'OVA' ){ %>
+                <a class="ml-1 anime_title text-truncate" href="/anime/<%= anime["mal_id"] %>"><%= anime["title"] %></a>
+                <% } else { %>
+                <a class="ml-1 anime_title text-truncate" href="/manga/<%= anime["mal_id"] %>"><%= anime["title"] %></a>
+                <% } %>
+            </div>
+            <ul class="list-inline m-1">
+                <% if( anime["score"] != null || anime["score"] != '0' ){ %>
+                <li class="list-inline-item text-primary">Score (<span><%= anime["score"] %></span>)</li>
+                <% } %>
+                <li class="list-inline-item text-success">Type: <%= anime["type"] %></li>
+                <li class="list-inline-item text-info">Members: <%= anime["members"] %></li>
+            </ul>
+            <div style="height: 210px; overflow: hidden;">
+                <%= anime["synopsis"] %>
+                <br>
+                <% if( anime["end_date"] != null ){ %>
+                    <span class="text-info">Aired: <%= anime["start_date"].substring(0,10) %> to <%= anime["end_date"].substring(0,10) %></span>
+                <% } %>
+            </div>
+        </div>
         <% }); %>
     </div>
 </div>

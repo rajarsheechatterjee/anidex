@@ -1,166 +1,310 @@
 <%- include("./partials/header") %>
 <div class="container">
-    <h3 style="margin-top: 25px; margin-bottom: 15px; text-align: center;"><i>Daily Schedule</i></h3>
-    <hr style="width: 50%;">
-
-<h5>Sunday</h5>
-<hr>
-<div class="row" style="display: flex; flex-wrap: wrap;">
-    <% data["sunday"].forEach(function(day) {%>
-        <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
-            <div class="thumbnail">
-                <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
-                <div class="caption">
-                    <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
-                    <hr style="margin-bottom: 3px; margin-top: 3px;">
-                </div>
-                    <p class="card-text"><%= day["synopsis"].substring(0,150) %> ...</p>
-                    <% if( day["source"] != null ){ %>
-                        <h6 style="display: inline-block;">Score: </h6> <%= day["source"] %><br>
+    <h4>Sunday</h4>
+    <hr>
+    <div class="row mt-1 mx-0">
+        <% data["sunday"].forEach(function(day) { %>
+            <div class="class anime-entry col-lg-6 border-bottom pl-0 my-1">
+            <div class="rounded anime_cover mr-2">
+                <a href="/anime/<%= day["mal_id"] %>">
+                    <img src="<%= day["image_url"] %>" width="100%" alt="anime-cover">
+                </a>
+            </div>
+            <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
+                <a class="ml-1 anime_title text-truncate" href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a>
+            </div>
+            <div>
+                <% if( day.genres != null ){ %>
+                    <% for( var j = 0; j < day.genres.length; j++) { %>
+                        <a href="/genre/<%= day.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= day.genres[j]["name"] %></a>
                     <% } %>
-                    <% if( day["score"] != null && day["score"] != '0' ){ %>
-                        <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
-                    <% } %>
-                    <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
+                <% } %>
+            </div>
+            <ul class="list-inline m-1">
+                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
+                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } %>
+                <% day.producers.forEach(function(studio){ %>
+                <li class="list-inline-item text-success"><%= studio["name"] %></li>
+                <% }) %>
+                <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
+                    <% if( day["episodes"] != null){ %>
+                        | <%= day["episodes"] %>
+                    <% } %> Eps
+                </li>
+            </ul>
+            <div style="height: 210px; overflow: hidden;">
+                <%= day["synopsis"].substring(0,400) %>...
+                <br>
+                <% if( day["airing_start"] != null && day.type != null){ %>
+                    <span class="text-info"><em><%= day.type %>- <%= day["airing_start"].substring(0,10) %></em></span>
+                <% } %>
             </div>
         </div>
-    <% }) %>     
-</div>
-
-<h5>Monday</h5>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
-        <% data["monday"].forEach(function(day) {%>
-            <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
-                <div class="thumbnail">
-                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
-                    <div class="caption">
-                        <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
-                        <hr style="margin-bottom: 3px; margin-top: 3px;">
-                    </div>
-                        <p class="card-text"><%= day["synopsis"].substring(0,150) %> ...</p>
-                        <% if( day["source"] != null ){ %>
-                            <h6 style="display: inline-block;">Score: </h6> <%= day["source"] %><br>
-                        <% } %>
-                        <% if( day["score"] != null && day["score"] != '0' ){ %>
-                            <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
-                        <% } %>
-                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
-                </div>
-            </div>
-        <% }) %>     
-    </div>
-    
-    <h5>Tuesday</h5>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
-        <% data["tuesday"].forEach(function(day) {%>
-            <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
-                <div class="thumbnail">
-                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
-                    <div class="caption">
-                        <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
-                        <hr style="margin-bottom: 3px; margin-top: 3px;">
-                    </div>
-                        <p class="card-text"><%= day["synopsis"].substring(0,150) %> ...</p>
-                        <% if( day["source"] != null ){ %>
-                            <h6 style="display: inline-block;">Score: </h6> <%= day["source"] %><br>
-                        <% } %>
-                        <% if( day["score"] != null && day["score"] != '0' ){ %>
-                            <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
-                        <% } %>
-                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
-                </div>
-            </div>
-        <% }) %>     
+        <% }); %>
     </div>
 
-    <h5>Wednesday</h5>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
-        <% data["wednesday"].forEach(function(day) {%>
-            <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
-            <div class="thumbnail">
-                <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
-                <div class="caption">
-                    <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
-                    <hr style="margin-bottom: 3px; margin-top: 3px;">
-                </div>
-                    <p class="card-text"><%= day["synopsis"].substring(0,150) %> ...</p>
-                    <% if( day["source"] != null ){ %>
-                        <h6 style="display: inline-block;">Score: </h6> <%= day["source"] %><br>
+    <h3>Monday</h3>
+    <hr>
+    <div class="row mt-1 mx-0">
+        <% data["monday"].forEach(function(day) { %>
+            <div class="class anime-entry col-lg-6 border-bottom pl-0 my-1">
+            <div class="rounded anime_cover mr-2">
+                <a href="/anime/<%= day["mal_id"] %>">
+                    <img src="<%= day["image_url"] %>" width="100%" alt="anime-cover">
+                </a>
+            </div>
+            <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
+                <a class="ml-1 anime_title text-truncate" href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a>
+            </div>
+            <div>
+                <% if( day.genres != null ){ %>
+                    <% for( var j = 0; j < day.genres.length; j++) { %>
+                        <a href="/genre/<%= day.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= day.genres[j]["name"] %></a>
                     <% } %>
-                    <% if( day["score"] != null && day["score"] != '0' ){ %>
-                        <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
-                    <% } %>
-                    <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
+                <% } %>
+            </div>
+            <ul class="list-inline m-1">
+                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
+                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } %>
+                <% day.producers.forEach(function(studio){ %>
+                <li class="list-inline-item text-success"><%= studio["name"] %></li>
+                <% }) %>
+                <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
+                    <% if( day["episodes"] != null){ %>
+                        | <%= day["episodes"] %>
+                    <% } %> Eps
+                </li>
+            </ul>
+            <div style="height: 210px; overflow: hidden;">
+                <%= day["synopsis"].substring(0,400) %>...
+                <br>
+                <% if( day["airing_start"] != null && day.type != null){ %>
+                    <span class="text-info"><em><%= day.type %>- <%= day["airing_start"].substring(0,10) %></em></span>
+                <% } %>
             </div>
         </div>
-        <% }) %>     
+        <% }); %>
     </div>
-    
-    <h5>Thursday</h5>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
-        <% data["thursday"].forEach(function(day) {%>
-            <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
-                <div class="thumbnail">
-                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
-                    <div class="caption">
-                        <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
-                        <hr style="margin-bottom: 3px; margin-top: 3px;">
-                    </div>
-                        <p class="card-text"><%= day["synopsis"].substring(0,150) %> ...</p>
-                        <% if( day["source"] != null ){ %>
-                            <h6 style="display: inline-block;">Score: </h6> <%= day["source"] %><br>
-                        <% } %>
-                        <% if( day["score"] != null && day["score"] != '0' ){ %>
-                            <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
-                        <% } %>
-                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
-                </div>
+
+    <h3>Tuesday</h3>
+    <hr>
+    <div class="row mt-1 mx-0">
+        <% data["tuesday"].forEach(function(day) { %>
+            <div class="class anime-entry col-lg-6 border-bottom pl-0 my-1">
+            <div class="rounded anime_cover mr-2">
+                <a href="/anime/<%= day["mal_id"] %>">
+                    <img src="<%= day["image_url"] %>" width="100%" alt="anime-cover">
+                </a>
             </div>
-        <% }) %>     
+            <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
+                <a class="ml-1 anime_title text-truncate" href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a>
+            </div>
+            <div>
+                <% if( day.genres != null ){ %>
+                    <% for( var j = 0; j < day.genres.length; j++) { %>
+                        <a href="/genre/<%= day.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= day.genres[j]["name"] %></a>
+                    <% } %>
+                <% } %>
+            </div>
+            <ul class="list-inline m-1">
+                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
+                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } %>
+                <% day.producers.forEach(function(studio){ %>
+                <li class="list-inline-item text-success"><%= studio["name"] %></li>
+                <% }) %>
+                <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
+                    <% if( day["episodes"] != null){ %>
+                        | <%= day["episodes"] %>
+                    <% } %> Eps
+                </li>
+            </ul>
+            <div style="height: 210px; overflow: hidden;">
+                <%= day["synopsis"].substring(0,400) %>...
+                <br>
+                <% if( day["airing_start"] != null && day.type != null){ %>
+                    <span class="text-info"><em><%= day.type %>- <%= day["airing_start"].substring(0,10) %></em></span>
+                <% } %>
+            </div>
+        </div>
+        <% }); %>
     </div>
-    <h5>Friday</h5>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
-        <% data["friday"].forEach(function(day) {%>
-            <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
-                <div class="thumbnail">
-                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
-                    <div class="caption">
-                        <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
-                        <hr style="margin-bottom: 3px; margin-top: 3px;">
-                    </div>
-                        <p class="card-text"><%= day["synopsis"].substring(0,150) %> ...</p>
-                        <% if( day["source"] != null ){ %>
-                            <h6 style="display: inline-block;">Score: </h6> <%= day["source"] %><br>
-                        <% } %>
-                        <% if( day["score"] != null && day["score"] != '0' ){ %>
-                            <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
-                        <% } %>
-                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
-                </div>
+
+    <h3>Wednesday</h3>
+    <hr>
+    <div class="row mt-1 mx-0">
+        <% data["wednesday"].forEach(function(day) { %>
+            <div class="class anime-entry col-lg-6 border-bottom pl-0 my-1">
+            <div class="rounded anime_cover mr-2">
+                <a href="/anime/<%= day["mal_id"] %>">
+                    <img src="<%= day["image_url"] %>" width="100%" alt="anime-cover">
+                </a>
             </div>
-        <% }) %>     
+            <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
+                <a class="ml-1 anime_title text-truncate" href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a>
+            </div>
+            <div>
+                <% if( day.genres != null ){ %>
+                    <% for( var j = 0; j < day.genres.length; j++) { %>
+                        <a href="/genre/<%= day.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= day.genres[j]["name"] %></a>
+                    <% } %>
+                <% } %>
+            </div>
+            <ul class="list-inline m-1">
+                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
+                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } %>
+                <% day.producers.forEach(function(studio){ %>
+                <li class="list-inline-item text-success"><%= studio["name"] %></li>
+                <% }) %>
+                <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
+                    <% if( day["episodes"] != null){ %>
+                        | <%= day["episodes"] %>
+                    <% } %> Eps
+                </li>
+            </ul>
+            <div style="height: 210px; overflow: hidden;">
+                <%= day["synopsis"].substring(0,400) %>...
+                <br>
+                <% if( day["airing_start"] != null && day.type != null){ %>
+                    <span class="text-info"><em><%= day.type %>- <%= day["airing_start"].substring(0,10) %></em></span>
+                <% } %>
+            </div>
+        </div>
+        <% }); %>
     </div>
-    
-    <h5>Saturday</h5>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
-        <% data["saturday"].forEach(function(day) {%>
-            <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
-                <div class="thumbnail">
-                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= day["image_url"] %>">
-                    <div class="caption">
-                        <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= day["title"] %></h5>
-                        <hr style="margin-bottom: 3px; margin-top: 3px;">
-                    </div>
-                        <p class="card-text"><%= day["synopsis"].substring(0,150) %> ...</p>
-                        <% if( day["source"] != null ){ %>
-                            <h6 style="display: inline-block;">Score: </h6> <%= day["source"] %><br>
-                        <% } %>
-                        <% if( day["score"] != null && day["score"] != '0' ){ %>
-                            <h6 style="display: inline-block;">Score: </h6> <%= day["score"] %><br>
-                        <% } %>
-                        <a href="/anime/<%= day["mal_id"] %>" class="btn btn-info">More Info</a>
-                </div>
+
+    <h3>Thursday</h3>
+    <hr>
+    <div class="row mt-1 mx-0">
+        <% data["thursday"].forEach(function(day) { %>
+            <div class="class anime-entry col-lg-6 border-bottom pl-0 my-1">
+            <div class="rounded anime_cover mr-2">
+                <a href="/anime/<%= day["mal_id"] %>">
+                    <img src="<%= day["image_url"] %>" width="100%" alt="anime-cover">
+                </a>
             </div>
-        <% }) %>     
-    </div>    
+            <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
+                <a class="ml-1 anime_title text-truncate" href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a>
+            </div>
+            <div>
+                <% if( day.genres != null ){ %>
+                    <% for( var j = 0; j < day.genres.length; j++) { %>
+                        <a href="/genre/<%= day.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= day.genres[j]["name"] %></a>
+                    <% } %>
+                <% } %>
+            </div>
+            <ul class="list-inline m-1">
+                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
+                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } %>
+                <% day.producers.forEach(function(studio){ %>
+                <li class="list-inline-item text-success"><%= studio["name"] %></li>
+                <% }) %>
+                <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
+                    <% if( day["episodes"] != null){ %>
+                        | <%= day["episodes"] %>
+                    <% } %> Eps
+                </li>
+            </ul>
+            <div style="height: 210px; overflow: hidden;">
+                <%= day["synopsis"].substring(0,400) %>...
+                <br>
+                <% if( day["airing_start"] != null && day.type != null){ %>
+                    <span class="text-info"><em><%= day.type %>- <%= day["airing_start"].substring(0,10) %></em></span>
+                <% } %>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+
+    <h3>Friday</h3>
+    <hr>
+    <div class="row mt-1 mx-0">
+        <% data["friday"].forEach(function(day) { %>
+            <div class="class anime-entry col-lg-6 border-bottom pl-0 my-1">
+            <div class="rounded anime_cover mr-2">
+                <a href="/anime/<%= day["mal_id"] %>">
+                    <img src="<%= day["image_url"] %>" width="100%" alt="anime-cover">
+                </a>
+            </div>
+            <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
+                <a class="ml-1 anime_title text-truncate" href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a>
+            </div>
+            <div>
+                <% if( day.genres != null ){ %>
+                    <% for( var j = 0; j < day.genres.length; j++) { %>
+                        <a href="/genre/<%= day.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= day.genres[j]["name"] %></a>
+                    <% } %>
+                <% } %>
+            </div>
+            <ul class="list-inline m-1">
+                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
+                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } %>
+                <% day.producers.forEach(function(studio){ %>
+                <li class="list-inline-item text-success"><%= studio["name"] %></li>
+                <% }) %>
+                <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
+                    <% if( day["episodes"] != null){ %>
+                        | <%= day["episodes"] %>
+                    <% } %> Eps
+                </li>
+            </ul>
+            <div style="height: 210px; overflow: hidden;">
+                <%= day["synopsis"].substring(0,400) %>...
+                <br>
+                <% if( day["airing_start"] != null && day.type != null){ %>
+                    <span class="text-info"><em><%= day.type %>- <%= day["airing_start"].substring(0,10) %></em></span>
+                <% } %>
+            </div>
+        </div>
+        <% }); %>
+    </div>
+
+    <h3>Saturday</h3>
+    <hr>
+    <div class="row mt-1 mx-0">
+        <% data["saturday"].forEach(function(day) { %>
+            <div class="class anime-entry col-lg-6 border-bottom pl-0 my-1">
+            <div class="rounded anime_cover mr-2">
+                <a href="/anime/<%= day["mal_id"] %>">
+                    <img src="<%= day["image_url"] %>" width="100%" alt="anime-cover">
+                </a>
+            </div>
+            <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
+                <a class="ml-1 anime_title text-truncate" href="/anime/<%= day["mal_id"] %>"><%= day["title"] %></a>
+            </div>
+            <div>
+                <% if( day.genres != null ){ %>
+                    <% for( var j = 0; j < day.genres.length; j++) { %>
+                        <a href="/genre/<%= day.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= day.genres[j]["name"] %></a>
+                    <% } %>
+                <% } %>
+            </div>
+            <ul class="list-inline m-1">
+                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
+                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } %>
+                <% day.producers.forEach(function(studio){ %>
+                <li class="list-inline-item text-success"><%= studio["name"] %></li>
+                <% }) %>
+                <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
+                    <% if( day["episodes"] != null){ %>
+                        | <%= day["episodes"] %>
+                    <% } %> Eps
+                </li>
+            </ul>
+            <div style="height: 210px; overflow: hidden;">
+                <%= day["synopsis"].substring(0,400) %>...
+                <br>
+                <% if( day["airing_start"] != null && day.type != null){ %>
+                    <span class="text-info"><em><%= day.type %>- <%= day["airing_start"].substring(0,10) %></em></span>
+                <% } %>
+            </div>
+        </div>
+        <% }); %>
+    </div>
 </div>

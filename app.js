@@ -90,7 +90,7 @@ app.get("/season/:year/:season", function(req, res){
     request(schedule_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("seasonanime", {data: data, year: year, season: season});
+            res.render("seasonanime", {data: data});
         }
     });
 });

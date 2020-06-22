@@ -1,35 +1,40 @@
 <%- include("./partials/header") %>
 
-<div class="container" style="margin-top: 15px;">
-    <h3 style="margin-top: 30px;">Top Manga Of All Time</h3>
-    <hr>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
-        <% data["top"].forEach(function(manga){ %>
-            <div class="col-md-3 col-sm-6">
-                <div class="thumbnail">
-                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= manga["image_url"] %>">
-                    <div class="caption">
-                        <h5 style="margin-bottom: 7px; margin-top: 7px; display: inline-block; vertical-align: middle;"><%= manga["rank"] %>. <%= manga["title"] %></h5>
-                        <% if( manga["end_date"] == null) { %>
-                            <span class="badge badge-primary" style="vertical-align: middle; display: inline-block;">Publishing</span>
-                        <% } %>
-                        <hr style="margin-bottom: 3px; margin-top: 3px;">
+<div class="container">
+    <div class="card mb-3">
+        <h6 class="card-header text-center">Top Manga Of All Time</h6>
+        <div class="tab-content">
+            <div class="row m-0">
+                <% data["top"].forEach(function(manga){ %>
+                <div class="col-md-6 border-bottom p-2">
+                    <div class="hover sm_manga_cover rounded float-left mr-2">
+                        <a href="/manga/<%= manga["mal_id"] %>">
+                            <img class="rounded max-width" src="<%= manga["image_url"] %>">
+                        </a>
                     </div>
-                    <% if( manga["end_date"] != null ){ %>
-                        <h6 style="display: inline-block;" style="margin-bottom: 5px;">Aired: </h6> <%= manga["start_date"] %> to <%= manga["end_date"] %><br>
-                    <% } else{ %>
-                        <h6 style="display: inline-block;" style="margin-bottom: 5px;">Aired: </h6> <%= manga["start_date"] %> to -<br>
-                    <% } %>
-                    <% if( manga["score"] != null ){ %>
-                        <h6 style="display: inline-block;">Score: </h6> <%= manga["score"] %><br>
-                    <% } %>
-                    <p>
-                        <a href="/manga/<%= manga["mal_id"] %>" class="btn btn-info">More Info</a>
-                    </p>
+                    <div class="pt-0 pb-1 mb-1 title border-bottom d-flex align-items-center flex-nowrap">
+                        <a class="manga_title text-truncate " href="/manga/<%= manga["mal_id"] %>"><%= manga["rank"] %>. <%= manga["title"] %></a>
+                    </div>
+                    <div class="text-truncate py-0 mb-1">
+                        <span class="text-info">Score (<%= manga["score"] %>)</span>
+                    </div>
+                    <div class="py-0 mb-1 row no-gutters align-items-center flex-nowrap">
+                        <%= manga["type"] %> 
+                        <% if( manga["volumes"] != null) { %>
+                            (<%= manga["volumes"] %> Volumes)
+                        <% } else { %>
+                            (? Volumes)
+                        <% } %>
+                    </div>
+                    <div class="text-truncate py-0 mb-1">
+                        <%= manga["start_date"] %> to <%= manga["end_date"] %>
+                    </div>
+                    <div class="text-truncate py-0 mb-1">
+                        <%= manga["members"] %> Members
+                    </div>                    
                 </div>
-            </div>  
-        <% }); %>
+                <% }) %>
+            </div>
+        </div>
     </div>
 </div>
-
-

@@ -1,6 +1,75 @@
+body {
+  font-size: 0.875rem;
+  margin-bottom: 50px;
+  padding-top: 70px;
+  padding-bottom: 30px;
+  font-family: "Ubuntu", sans-serif;
+}
 
+.border-bottom {
+  border-bottom: 1px solid #dee2e6;
+}
 
-li {
-    margin-left: 5px;
-    margin-right: 5px;
+div.anime_cover {
+  width: 150px;
+  height: 255px;
+  float: left;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.rounded {
+  border-radius: 0.25rem !important;
+}
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+a.anime_title, a.anime_title:hover, a.anime_title:focus {
+  font-weight: bold;
+}
+
+a.manga_title, a.manga_title:hover, a.manga_title:focus {
+  font-weight: bold;
+}
+
+.text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.m-1 {
+  margin: 0.25rem !important;
+}
+
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+}
+
+.title {
+  font-size: 0.950rem;
+}
+
+.genre {
+  color: #6c757d;
+}
+
+div.sm_anime_cover {
+  width: 80px;
+  height: 120px;
+  overflow: hidden;
+}
+
+div.sm_manga_cover {
+  width: 80px;
+  height: 120px;
+  overflow: hidden;
+}
+
+img.max-width {
+  max-width: 100%;
 }

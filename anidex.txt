@@ -763,3 +763,86 @@ Schedule<h5>Monday</h5>
             <% }) %>     
         </div>    
     </div>
+
+
+
+
+
+
+
+
+    Search
+
+    <!-- --------Search Results-------- -->
+
+<%- include("./partials/header") %>
+
+<div class="container" style="margin-top: 15px;">
+    <h3 style="margin-top: 25px; margin-bottom: 15px;">Search Results</h3>
+    <hr>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% data["results"].forEach(function(anime){ %>
+            <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
+                <div class="thumbnail">
+                    <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= anime["image_url"] %>">
+                    <div class="caption">
+                        <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= anime["title"] %></h5>
+                        <hr style="margin-bottom: 3px; margin-top: 3px;">
+                    </div>
+                        <p class="card-text"><%= anime["synopsis"] %></p>
+                        <% if( anime["end_date"] != null ){ %>
+                            <h6 style="display: inline-block;" style="margin-bottom: 5px;">Aired: </h6> <%= anime["start_date"].substring(0,10) %> to <%= anime["end_date"].substring(0,10) %><br>
+                        <% } %>
+                        <% if( anime["score"] != null || anime["score"] != '0' ){ %>
+                            <h6 style="display: inline-block;">Score: </h6> <%= anime["score"] %><br>
+                        <% } %>
+                        <% if( anime["type"] == 'TV' || anime["type"] == 'Movie' || anime["type"] == 'Music' || anime["type"] == 'ONA' || anime["type"] == 'OVA' ){ %>
+                            <a href="/anime/<%= anime["mal_id"] %>" class="btn btn-info">More Info</a>
+                        <% } else { %>
+                            <a href="/manga/<%= anime["mal_id"] %>" class="btn btn-info">More Info</a>
+                        <% } %>
+                </div>
+            </div>  
+        <% }); %>
+    </div>
+</div>
+
+
+
+
+currentseason
+
+<div class="container" style="margin-top: 15px;">
+    <h4 style="margin-top: 25px; margin-bottom: 15px;"><%= data.season_name %> <%= data.season_year %> Anime</h4>
+    <hr>
+    <div class="row" style="display: flex; flex-wrap: wrap;">
+        <% for (var i = 0; i < 12; i++) { %>
+            <% var obj = data.anime[i]; %>
+            <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
+                <div class="thumbnail">
+                    <img class="shadow"style="width: 225px; height: 346px; object-fit: cover;" src="<%= obj.image_url %>">
+                    <div class="caption">
+                        <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= obj.title %></h5>
+                        <hr style="margin-bottom: 3px; margin-top: 3px;">
+                    </div>
+                    <% if ( obj.airing_start != null){ %>
+                        <h6 style="display: inline-block;">Airing Start: </h6>
+                            <%= obj.airing_start.substring(0,10) %>
+                    <% } %>
+                        <p style="margin-bottom: 7px;" class="card-text"><%= obj.synopsis.substring(0,150) %> ...</p>
+                    <% if( obj.genres != null ){ %>
+                        <h6 style="display: inline-block; line-height: 65%; margin-bottom: 5px;">Genres: </h6> 
+                        <% for( var j = 0; j < obj.genres.length; j++) { %>
+                            <a href="/genre/<%= obj.genres[j]["mal_id"] %>" class="badge badge-info"><%= obj.genres[j]["name"] %></a>
+                        <% } %>
+                        <br>
+                    <% } %>
+                    <% if( obj.source != null ){ %>
+                        <h6 style="display: inline-block;">Source: </h6> <%= obj.source %><br>
+                    <% } %>
+                        <a href="/anime/<%= obj.mal_id %>" class="btn btn-primary">More Info</a>
+                </div>
+            </div>  
+        <% }; %>
+    </div>
+</div>
