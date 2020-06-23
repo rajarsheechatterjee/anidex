@@ -1,6 +1,6 @@
 body {
   font-size: 0.875rem;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   padding-top: 70px;
   padding-bottom: 30px;
   font-family: "Ubuntu", sans-serif;
@@ -85,4 +85,15 @@ img.max-width {
   width: 160px;
   height: 240px;
   overflow: hidden;
+}
+
+.episode_title {
+  font-size: 0.950rem;
+  color: #337ab7;
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1410px;
+  }
 }

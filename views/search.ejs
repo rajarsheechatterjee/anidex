@@ -19,7 +19,7 @@
                 <% } %>
             </div>
             <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
-                <% if( anime["type"] == 'TV' || anime["type"] == 'Movie' || anime["type"] == 'Music' || anime["type"] == 'ONA' || anime["type"] == 'OVA' ){ %>
+                <% if( anime["type"] == 'TV' || anime["type"] == 'Movie' || anime["type"] == 'Music' || anime["type"] == 'ONA' || anime["type"] == 'OVA' || anime["type"] == 'Special'){ %>
                 <a class="ml-1 anime_title text-truncate" href="/anime/<%= anime["mal_id"] %>"><%= anime["title"] %></a>
                 <% } else { %>
                 <a class="ml-1 anime_title text-truncate" href="/manga/<%= anime["mal_id"] %>"><%= anime["title"] %></a>

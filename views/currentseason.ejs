@@ -20,7 +20,7 @@
             <div>
                 <% if( season.genres != null ){ %>
                     <% for( var j = 0; j < season.genres.length; j++) { %>
-                        <a href="/genre/<%= season.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= season.genres[j]["name"] %></a>
+                        <a href="/genre/anime/<%= season.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= season.genres[j]["name"] %></a>
                     <% } %>
                 <% } %>
             </div>
@@ -52,3 +52,5 @@
         <% }); %>
     </div>
 </div>
+
+<%- include("./partials/footer") %>

@@ -22,7 +22,7 @@
             <p><%= data.synopsis %>
             <% if( data["type"] === 'TV'){ %>
                 <br>
-                <a href="/anime/<%= data.mal_id %>/episodes">List Of Episodes</a>
+                <a href="/anime/<%= data.mal_id %>/episodes/1">List Of Episodes</a>
             <% } %>
             </p>
         </div>
@@ -110,7 +110,7 @@
                     <hr style="margin-top: 10px; margin-bottom: 10px;">
                     <p>
                         <% for( var i = 0; i < data["genres"].length; i++) { %>
-                            <a href="/genre/<%= data.genres[i]["mal_id"] %>" class="badge badge-info"><%= data.genres[i]["name"] %></a>
+                            <a href="/genre/anime/<%= data.genres[i]["mal_id"] %>" class="badge badge-info"><%= data.genres[i]["name"] %></a>
                         <% } %>
                     </p>
                 </div>
@@ -212,9 +212,6 @@
             </div>
         </div>
     </div>
-    
-
-
-
-
 </div>
+
+<%- include("./partials/footer") %>

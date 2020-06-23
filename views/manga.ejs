@@ -6,7 +6,7 @@
         <div class="tab-content">
             <div class="row m-0">
                 <% data["top"].forEach(function(manga){ %>
-                <div class="col-md-6 border-bottom p-2">
+                <div class="col-md-4 border-bottom p-2">
                     <div class="hover sm_manga_cover rounded float-left mr-2">
                         <a href="/manga/<%= manga["mal_id"] %>">
                             <img class="rounded max-width" src="<%= manga["image_url"] %>">
@@ -38,7 +38,7 @@
         </div>
     </div>
     <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-end">
+        <ul class="pagination justify-content-center">
             <%if(page==1){%>
                 <% for(var i=parseInt(page);i<parseInt(page)+7;i++){%>
                     <li class="page-item" style="margin-right: 0;">
@@ -59,3 +59,5 @@
         </ul>
     </nav>
 </div>
+
+<%- include("./partials/footer") %>

@@ -167,13 +167,14 @@ app.get("/manga/:mal_id", function(req, res){
 
 //========================================================= SHOW EPISODE DATA PAGE ==========================================================
 
-app.get("/anime/:mal_id/episodes", function(req, res){
+app.get("/anime/:mal_id/episodes/:page", function(req, res){
+    var page = req.params.page;
     var mal_id = req.params.mal_id;
-    var epi_url = "https://api.jikan.moe/v3/anime/" + mal_id + "/episodes";
+    var epi_url = "https://api.jikan.moe/v3/anime/" + mal_id + "/episodes/" + page;
     request(epi_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("episodes", {data: data});
+            res.render("episodes", {data: data, page: page, mal_id: mal_id});
         }
     });
 });
