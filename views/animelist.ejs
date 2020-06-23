@@ -1,43 +1,64 @@
 <%- include("./partials/header") %>
 
-<div class="container" style="margin-top: 15px;">
-    <h4 style="margin-top: 25px; margin-bottom: 15px;"><%= currentUser.username %>'s Anime List</h4>
-    <hr>
-    
-    <div class="row" style="display: flex; flex-wrap: wrap;">
-        <% data["anime"].forEach(function(ani){ %>
-                <div class="col-md-3 col-sm-6" style="margin-bottom: 10px;">
-                    <div class="thumbnail">
-                        <img class="shadow" style="width: 225px; height: 346px; object-fit: cover;" src="<%= ani["image_url"] %>">
-                        <div class="caption">
-                            <h5 style="margin-bottom: 7px; margin-top: 7px; display: inline-block; vertical-align: middle;"><%= ani["title"] %></h5>
-                            <% if( ani["airing_status"] == 1) { %>
-                                <span class="badge badge-primary" style="vertical-align: middle; display: inline-block;">Airing</span>
-                            <% } %>
-                            <hr style="margin-bottom: 3px; margin-top: 3px;">
+<div class="container">
+    <div class="card mb-3">
+        <h6 class="card-header text-center"><%= currentUser.username %>'s Anime List</h6>
+        <div class="tab-content">
+            <div class="row m-0">
+                <% data["anime"].forEach(function(ani){ %>
+                    <div class="col-md-6 border-bottom p-2">
+                        <div class="hover sm_anime_cover rounded float-left mr-2">
+                            <a href="/anime/<%= ani["mal_id"] %>">
+                                <img class="rounded max-width" src="<%= ani["image_url"] %>">
+                            </a>
                         </div>
-                            <% if( ani["watching_status"] == 1) { %>
-                                <h6 style="display: inline-block;">Status: </h6> Watching<br>
-                                <% if( ani["watched_episodes"] != null ){ %>
-                                    <h6 style="display: inline-block;">Progress: </h6> <%= ani["watched_episodes"] %>/<%= ani["total_episodes"] %><br>
-                                <% } %>
-                            <% } else if( ani["watching_status"] == 2) { %>
-                                <h6 style="display: inline-block;">Status: </h6> Completed<br>
-                                <h6 style="display: inline-block;">Total Episodes: </h6> <%= ani["total_episodes"] %><br>
-                            <% } else if( ani["watching_status"] == 4) { %>
-                                <h6 style="display: inline-block;">Status: </h6> Dropped<br>
-                            <% } else if( ani["watching_status"] == 6) { %>
-                                <h6 style="display: inline-block;">Status: </h6> Plan To Watch<br>
+                        <div class="pt-0 pb-1 mb-1 title border-bottom d-flex align-items-center flex-nowrap">
+                            <a class="anime_title text-truncate " href="/anime/<%= ani["mal_id"] %>"><%= ani["title"] %></a>
+                            <span class="badge badge-light"><%= ani["type"] %></span>
+                            <% if( ani["airing_status"] == 1) { %>
+                            <span class="badge badge-primary">Airing</span>
                             <% } %>
-                            <h6 style="display: inline-block;">Type: </h6> <%= ani["type"] %><br>
+                        </div>
+                        <div class="text-truncate py-0 mb-1">
                             <% if( ani["score"] != null && ani["score"] != '0' ){ %>
-                                <h6 style="display: inline-block;">Your Score: </h6> <%= ani["score"] %><br>
+                            <span class="text-info score">Your Score (<%= ani["score"] %>)</span>
                             <% } else {%>
-                                <h6 style="display: inline-block;">Your Score: </h6> -<br>
+                            <span class="text-info score">Your Score (-)</span>
                             <% } %>
-                                <a href="/anime/<%= ani["mal_id"] %>" class="btn btn-info">More Info</a>
+                        </div>  
+                        <div class="text-truncate py-0 mb-1">
+                            <% if( ani["watching_status"] == 1) { %>
+                                <span class="strong">Status: </span>Watching
+                            <% } else if( ani["watching_status"] == 2) { %>
+                                <span class="strong">Status: </span>Completed
+                            <% } else if( ani["watching_status"] == 3) { %>
+                                <span class="strong">Status: </span>On Hold
+                            <% } else if( ani["watching_status"] == 4) { %>
+                                <span class="strong">Status: </span>Dropped
+                            <% } else if( ani["watching_status"] == 6) { %>
+                                <span class="strong">Status: </span>Plan To Watch
+                            <% } %>
+                        </div>
+                        <% if( ani["watching_status"] == 1) { %>
+                            <div class="text-truncate py-0 mb-1">
+                                <span class="strong">Progress: </span><%= ani["watched_episodes"] %>/<%= ani["total_episodes"] %> Episodes
+                            </div>    
+                        <% } %>
+                        <% if( ani["watching_status"] == 2) { %>
+                        <div class="text-truncate py-0 mb-1">
+                            <span class="strong">Total Episodes: </span><%= ani["total_episodes"] %>
+                        </div>    
+                        <% } %>
+                        <div class="text-truncate py-0 mb-1">
+                            <% if( ani["end_date"] != null) { %>
+                            <span class="strong">Aired: </span><%= ani["start_date"].substring(0,10) %> to <%= ani["end_date"].substring(0,10) %>
+                            <% } else { %>
+                            <span class="strong">Airing: </span><%= ani["start_date"].substring(0,10) %> to ? %>
+                            <% } %>
+                        </div>                  
                     </div>
-                </div>
-        <% }); %>
+                <% }) %>
+            </div>
+        </div>
     </div>
 </div>

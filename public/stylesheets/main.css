@@ -73,3 +73,16 @@ div.sm_manga_cover {
 img.max-width {
   max-width: 100%;
 }
+
+.strong {
+  font-weight: bold;
+}
+.score {
+  font-weight: 500;
+}
+
+.sm_recom_cover {
+  width: 160px;
+  height: 240px;
+  overflow: hidden;
+}

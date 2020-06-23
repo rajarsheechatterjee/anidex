@@ -37,4 +37,25 @@
             </div>
         </div>
     </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-end">
+            <%if(page==1){%>
+                <% for(var i=parseInt(page);i<parseInt(page)+7;i++){%>
+                    <li class="page-item" style="margin-right: 0;">
+                        <a class="page-link" href="/top/manga/<%=i%>">
+                            <%=i%>
+                        </a>
+                    </li
+                <%}%>
+            <%} else if(page>1){%>
+                <% for(var i=parseInt(page)-1;i<parseInt(page)+6 && i < 11 ;i++){%>
+                    <li class="page-item" style="margin-left: 0;">
+                        <a class="page-link" href="/top/manga/<%=i%>">
+                            <%=i%>
+                        </a>
+                    </li>
+                <%}%>
+            <%}%>
+        </ul>
+    </nav>
 </div>

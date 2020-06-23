@@ -17,7 +17,7 @@
             <div>
                 <% if( ani.genres != null ){ %>
                     <% for( var j = 0; j < ani.genres.length; j++) { %>
-                        <a href="/genre/<%= ani.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= ani.genres[j]["name"] %></a>
+                        <a href="/genre/anime/<%= ani.genres[j]["mal_id"] %>" class="badge badge-light genre"><%= ani.genres[j]["name"] %></a>
                     <% } %>
                 <% } %>
             </div>

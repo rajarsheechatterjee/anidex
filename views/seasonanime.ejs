@@ -22,17 +22,21 @@
                 <% } %>
             </div>
             <ul class="list-inline m-1">
-                <% if( season["score"] != null || season["score"] != '0' ){ %>
-                <li class="list-inline-item text-primary">Score (<span><%= season["score"] %></span>)</li>
-                <% } %>
-                <% season.producers.forEach(function(studio){ %>
-                <li class="list-inline-item text-success"><%= studio["name"] %></li>
-                <% }) %>
-                <li class="list-inline-item text-secondary">Source: <%= season["source"] %> 
-                <% if( season["episodes"] != null){ %>
-                    | <%= season["episodes"] %>
-                <% } %> Eps
-                </li>
+                <% if( season["score"] != null && season["score"] != '0' ){ %>
+                    <li class="list-inline-item text-primary">Score (<span><%= season["score"] %></span>)</li>
+                    <% } else { %>
+                    <li class="list-inline-item text-primary">Score (-)</li>
+                    <% } %>
+                    <% season.producers.forEach(function(studio){ %>
+                    <li class="list-inline-item text-success"><%= studio["name"] %></li>
+                    <% }) %>
+                    <li class="list-inline-item text-secondary">Source: <%= season["source"] %> 
+                        <% if( season["episodes"] != null){ %>
+                            | <%= season["episodes"] %> Eps
+                        <% } else { %>
+                            | ? Eps
+                        <% } %>
+                    </li>
             </ul>
             <div style="height: 210px; overflow: hidden;">
                 <%= season["synopsis"].substring(0,400) %>...

@@ -21,16 +21,20 @@
                 <% } %>
             </div>
             <ul class="list-inline m-1">
-                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
-                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% if( day["score"] != null && day["score"] != '0' ){ %>
+                    <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } else { %>
+                    <li class="list-inline-item text-primary">Score (-)</li>
                 <% } %>
                 <% day.producers.forEach(function(studio){ %>
                 <li class="list-inline-item text-success"><%= studio["name"] %></li>
                 <% }) %>
                 <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
-                    <% if( day["episodes"] != null){ %>
-                        | <%= day["episodes"] %>
-                    <% } %> Eps
+                    <% if( day["episodes"] != null && day["episodes"] != '0' ){ %>
+                        | <%= day["episodes"] %> Eps
+                    <% } else { %>
+                        | ? Eps
+                    <% } %>
                 </li>
             </ul>
             <div style="height: 210px; overflow: hidden;">
@@ -65,16 +69,20 @@
                 <% } %>
             </div>
             <ul class="list-inline m-1">
-                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
-                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% if( day["score"] != null && day["score"] != '0' ){ %>
+                    <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } else { %>
+                    <li class="list-inline-item text-primary">Score (-)</li>
                 <% } %>
                 <% day.producers.forEach(function(studio){ %>
                 <li class="list-inline-item text-success"><%= studio["name"] %></li>
                 <% }) %>
                 <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
-                    <% if( day["episodes"] != null){ %>
-                        | <%= day["episodes"] %>
-                    <% } %> Eps
+                    <% if( day["episodes"] != null && day["episodes"] != '0' ){ %>
+                        | <%= day["episodes"] %> Eps
+                    <% } else { %>
+                        | ? Eps
+                    <% } %>
                 </li>
             </ul>
             <div style="height: 210px; overflow: hidden;">
@@ -109,16 +117,20 @@
                 <% } %>
             </div>
             <ul class="list-inline m-1">
-                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
-                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% if( day["score"] != null && day["score"] != '0' ){ %>
+                    <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } else { %>
+                    <li class="list-inline-item text-primary">Score (-)</li>
                 <% } %>
                 <% day.producers.forEach(function(studio){ %>
                 <li class="list-inline-item text-success"><%= studio["name"] %></li>
                 <% }) %>
                 <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
-                    <% if( day["episodes"] != null){ %>
-                        | <%= day["episodes"] %>
-                    <% } %> Eps
+                    <% if( day["episodes"] != null && day["episodes"] != '0' ){ %>
+                        | <%= day["episodes"] %> Eps
+                    <% } else { %>
+                        | ? Eps
+                    <% } %>
                 </li>
             </ul>
             <div style="height: 210px; overflow: hidden;">
@@ -153,16 +165,20 @@
                 <% } %>
             </div>
             <ul class="list-inline m-1">
-                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
-                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% if( day["score"] != null && day["score"] != '0' ){ %>
+                    <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } else { %>
+                    <li class="list-inline-item text-primary">Score (-)</li>
                 <% } %>
                 <% day.producers.forEach(function(studio){ %>
                 <li class="list-inline-item text-success"><%= studio["name"] %></li>
                 <% }) %>
                 <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
-                    <% if( day["episodes"] != null){ %>
-                        | <%= day["episodes"] %>
-                    <% } %> Eps
+                    <% if( day["episodes"] != null && day["episodes"] != '0' ){ %>
+                        | <%= day["episodes"] %> Eps
+                    <% } else { %>
+                        | ? Eps
+                    <% } %>
                 </li>
             </ul>
             <div style="height: 210px; overflow: hidden;">
@@ -197,16 +213,20 @@
                 <% } %>
             </div>
             <ul class="list-inline m-1">
-                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
-                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% if( day["score"] != null && day["score"] != '0' ){ %>
+                    <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } else { %>
+                    <li class="list-inline-item text-primary">Score (-)</li>
                 <% } %>
                 <% day.producers.forEach(function(studio){ %>
                 <li class="list-inline-item text-success"><%= studio["name"] %></li>
                 <% }) %>
                 <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
-                    <% if( day["episodes"] != null){ %>
-                        | <%= day["episodes"] %>
-                    <% } %> Eps
+                    <% if( day["episodes"] != null && day["episodes"] != '0' ){ %>
+                        | <%= day["episodes"] %> Eps
+                    <% } else { %>
+                        | ? Eps
+                    <% } %>
                 </li>
             </ul>
             <div style="height: 210px; overflow: hidden;">
@@ -241,16 +261,20 @@
                 <% } %>
             </div>
             <ul class="list-inline m-1">
-                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
-                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% if( day["score"] != null && day["score"] != '0' ){ %>
+                    <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } else { %>
+                    <li class="list-inline-item text-primary">Score (-)</li>
                 <% } %>
                 <% day.producers.forEach(function(studio){ %>
                 <li class="list-inline-item text-success"><%= studio["name"] %></li>
                 <% }) %>
                 <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
-                    <% if( day["episodes"] != null){ %>
-                        | <%= day["episodes"] %>
-                    <% } %> Eps
+                    <% if( day["episodes"] != null && day["episodes"] != '0' ){ %>
+                        | <%= day["episodes"] %> Eps
+                    <% } else { %>
+                        | ? Eps
+                    <% } %>
                 </li>
             </ul>
             <div style="height: 210px; overflow: hidden;">
@@ -285,16 +309,20 @@
                 <% } %>
             </div>
             <ul class="list-inline m-1">
-                <% if( day["score"] !== null || day["score"] !== '0' ){ %>
-                <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% if( day["score"] != null && day["score"] != '0' ){ %>
+                    <li class="list-inline-item text-primary">Score (<span><%= day["score"] %></span>)</li>
+                <% } else { %>
+                    <li class="list-inline-item text-primary">Score (-)</li>
                 <% } %>
                 <% day.producers.forEach(function(studio){ %>
                 <li class="list-inline-item text-success"><%= studio["name"] %></li>
                 <% }) %>
                 <li class="list-inline-item text-secondary">Source: <%= day["source"] %> 
-                    <% if( day["episodes"] != null){ %>
-                        | <%= day["episodes"] %>
-                    <% } %> Eps
+                    <% if( day["episodes"] != null && day["episodes"] != '0' ){ %>
+                        | <%= day["episodes"] %> Eps
+                    <% } else { %>
+                        | ? Eps
+                    <% } %>
                 </li>
             </ul>
             <div style="height: 210px; overflow: hidden;">

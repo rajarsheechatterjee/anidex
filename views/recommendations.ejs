@@ -1,23 +1,25 @@
 <%- include("./partials/header") %>
 
-<div class="container" style="margin-top: 15px;">
-    <h3 style="margin-top: 25px; margin-bottom: 15px;">If you liked it you may like these</h3>
-    <hr>
-    <div class="row" style="display: flex; flex-wrap: wrap;">
-        <% data["recommendations"].forEach(function(recom){ %>
-            <div class="col-md-3 col-sm-6">
-                <div class="thumbnail">
-                    <img style="width: 225px; height: 346px; object-fit: cover;" src="<%= recom["image_url"] %>">
-                    <div class="caption">
-                        <h5 style="margin-bottom: 7px; margin-top: 7px;"><%= recom["title"] %></h5>
+<div class="container">
+    <div class="card mb-3">
+        <h6 class="card-header text-center">If You Liked It You May Like These</h6>
+        <div class="tab-content">
+            <div class="row m-0">
+                <% data["recommendations"].forEach(function(recom){ %>
+                <div class="col-md-3 d-flex border-bottom p-2">
+                    <div class="float-left mr-2">
+                        <div class="hover rounded">
+                            <a href="/anime/<%= recom["mal_id"] %>">
+                                <img class="rounded max-width sm_recom_cover" src="<%= recom["image_url"] %>">
+                            </a>
+                        </div>
+                        <div class="pt-0 pb-1 mb-1 title d-flex align-items-center flex-nowrap">
+                            <a class="anime_title text-truncate" href="/anime/<%= recom["mal_id"] %>"><%= recom["title"] %></a>
+                        </div>
                     </div>
-                    <p>
-                        <a href="/anime/<%= recom["mal_id"] %>" class="btn btn-primary">More Info</a>
-                    </p>
                 </div>
-            </div>  
-        <% }); %>
+                <% }) %>
+            </div>
+        </div>
     </div>
 </div>
-
-

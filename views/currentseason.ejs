@@ -2,6 +2,9 @@
 
 <div class="container">
     <h3>Spring 2020 Season</h3>
+    <a href="/season/2020/summer" class="h6" style="color: black;">
+        Next Season: Summer 2020 Season
+    </a>
     <hr>
     <div class="row mt-1 mx-0">
         <% data["anime"].forEach(function(season){ %>
@@ -22,16 +25,20 @@
                 <% } %>
             </div>
             <ul class="list-inline m-1">
-                <% if( season["score"] != null || season["score"] != '0' ){ %>
+                <% if( season["score"] != null && season["score"] != '0' ){ %>
                 <li class="list-inline-item text-primary">Score (<span><%= season["score"] %></span>)</li>
+                <% } else { %>
+                <li class="list-inline-item text-primary">Score (-)</li>
                 <% } %>
                 <% season.producers.forEach(function(studio){ %>
                 <li class="list-inline-item text-success"><%= studio["name"] %></li>
                 <% }) %>
                 <li class="list-inline-item text-secondary">Source: <%= season["source"] %> 
                     <% if( season["episodes"] != null){ %>
-                        | <%= season["episodes"] %>
-                    <% } %> Eps
+                        | <%= season["episodes"] %> Eps
+                    <% } else { %>
+                        | ? Eps
+                    <% } %>
                 </li>
             </ul>
             <div style="height: 210px; overflow: hidden;">

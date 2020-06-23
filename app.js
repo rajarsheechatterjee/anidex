@@ -108,18 +108,23 @@ app.get("/top/anime/:page", function(req, res){
     });
 });
 
-app.get("/manga", function(req, res){
-    var manga_url = "https://api.jikan.moe/v3/top/manga";
+app.get("/top/manga/:page", function(req, res){
+    var page = req.params.page;
+    var manga_url = "https://api.jikan.moe/v3/top/manga/" + page;
     request(manga_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("manga", {data: data});
+            res.render("manga", {data: data, page: page});
         }
     });
 });
 
 app.get("/top/anime/", function(req, res){
     res.redirect("/top/anime/1");
+});
+
+app.get("/top/manga/", function(req, res){
+    res.redirect("/top/manga/1");
 });
 
 //============================================================ SEARCH PAGE =============================================================
@@ -144,7 +149,7 @@ app.get("/anime/:mal_id", function(req, res){
     request(animedata_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("animedata", {data: data, mal_id: mal_id});
+            res.render("animedata", {data: data});
         }
     });
 });
@@ -155,7 +160,7 @@ app.get("/manga/:mal_id", function(req, res){
     request(mangadata_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("mangadata", {data: data, mal_id: mal_id});
+            res.render("mangadata", {data: data});
         }
     });
 });
@@ -168,7 +173,7 @@ app.get("/anime/:mal_id/episodes", function(req, res){
     request(epi_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("episodes", {data: data, mal_id: mal_id});
+            res.render("episodes", {data: data});
         }
     });
 });
@@ -181,44 +186,44 @@ app.get("/anime/:mal_id/recommendations", function(req, res){
     request(recom_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("recommendations", {data: data, mal_id: mal_id});
+            res.render("recommendations", {data: data});
         }
     });
 });
 
 //============================================================ GENRE PAGE =============================================================
 
-app.get("/genre", function(req, res){
+app.get("/genre/anime", function(req, res){
     res.render("genre");
 });
 
-app.get("/mangagenre", function(req, res){
+app.get("/genre/manga", function(req, res){
     res.render("genrem");
 });
 
 
 //========================================================= ANIMES IN A GENRE ==========================================================
 
-app.get("/genre/:genre_id", function(req, res){
+app.get("/genre/anime/:genre_id", function(req, res){
     var genre_id = req.params.genre_id;
     var genreanime_url = "https://api.jikan.moe/v3/genre/anime/" + genre_id;
     request(genreanime_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("genreanime", {data: data, genre_id: genre_id});
+            res.render("genreanime", {data: data});
         }
     });
 });
 
 //========================================================= MANGAS IN A GENRE ==========================================================
 
-app.get("/mangagenre/:genre_id", function(req, res){
+app.get("/genre/manga/:genre_id", function(req, res){
     var genre_id = req.params.genre_id;
     var genreanime_url = "https://api.jikan.moe/v3/genre/manga/" + genre_id;
     request(genreanime_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("genremanga", {data: data, genre_id: genre_id});
+            res.render("genremanga", {data: data});
         }
     });
 });
