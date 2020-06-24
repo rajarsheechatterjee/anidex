@@ -9,10 +9,6 @@ var express        = require("express"),
     User           = require("./models/user"),
     methodOverride = require("method-override");
 
-
-var Jikan = require('jikan-node');
-var mal = new Jikan();
-
 mongoose.connect("mongodb://localhost/Anidex", { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(bodyParser.urlencoded({extended: true}));
