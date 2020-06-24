@@ -1,7 +1,192 @@
 <%- include("./partials/header") %>
 
-<div class="container" style="vertical-align: middle;">
-    <h1>Index Page</h1>
+<div class="container">
+    <div class="row mt-1 mx-0">
+        <div class="col-lg-8">
+            <h3>Spring 2020 Season</h3>
+            <a href="/season/2020/summer" class="h6" style="color: black;">
+                Next Season: Summer 2020 Season
+            </a>
+            <hr>
+            <div class="row mt-1 mx-0">
+                <%  let season = data1["anime"] %>
+                <% for( var i = 0; i < 10 ; i++ ){ %>
+                    <div class="class anime-entry col-lg-6 border-bottom pl-0 my-1">
+                    <div class="rounded anime_cover mr-2">
+                        <a href="/anime/<%= season[i]["mal_id"] %>">
+                            <img src="<%= season[i]["image_url"] %>" width="100%" alt="anime-cover">
+                        </a>
+                    </div>
+                    <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
+                        <a class="ml-1 anime_title text-truncate" href="/anime/<%= season[i]["mal_id"] %>"><%= season[i]["title"] %></a>
+                    </div>
+                    <div>
+                        <% if( season[i].genres != null ){ %>
+                            <% for( var j = 0; j < season[i].genres.length; j++) { %>
+                                <a href="/genre/anime/<%= season[i].genres[j]["mal_id"] %>" class="badge badge-light genre"><%= season[i].genres[j]["name"] %></a>
+                            <% } %>
+                        <% } %>
+                    </div>
+                    <ul class="list-inline m-1">
+                        <% if( season[i]["score"] != null && season[i]["score"] != '0' ){ %>
+                        <li class="list-inline-item text-primary">Score (<span><%= season[i]["score"] %></span>)</li>
+                        <% } else { %>
+                        <li class="list-inline-item text-primary">Score (-)</li>
+                        <% } %>
+                        <% season[i].producers.forEach(function(studio){ %>
+                        <li class="list-inline-item text-success"><%= studio["name"] %></li>
+                        <% }) %>
+                        <li class="list-inline-item text-secondary">Source: <%= season[i]["source"] %> 
+                            <% if( season[i]["episodes"] != null){ %>
+                                | <%= season[i]["episodes"] %> Eps
+                            <% } else { %>
+                                | ? Eps
+                            <% } %>
+                        </li>
+                    </ul>
+                    <div style="height: 210px; overflow: hidden;">
+                        <%= season[i]["synopsis"].substring(0,250) %>...
+                        <br>
+                        <% if( season[i]["airing_start"] != null && season[i].type != null){ %>
+                            <span class="text-info"><em><%= season[i].type %>- <%= season[i]["airing_start"].substring(0,10) %></em></span>
+                        <% } %>
+                    </div>
+                </div>
+                <% }; %>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card mb-3">
+                <h6 class="card-header text-center">Top Airing Anime</h6>
+                <div class="tab-content">
+                    <ul class="list-group list-group-css list-group-flush">
+                        <% let airingAnime = data3["top"] %>
+                        <% for( var i = 0; i < 5; i++) { %>
+                        <li class="list-group-item px-2 py-1">
+                            <div class="hover tiny_logo rounded float-left mr-2">
+                                <a href="/anime/<%= airingAnime[i]["mal_id"] %>">
+                                    <img class="rounded max-width" src="<%= airingAnime[i]["image_url"] %>">
+                                </a>
+                            </div>
+                            <div class="text-truncate pt-0 pb-1 mb-1 border-bottom">
+                                <a class="manga_title text-truncate " href="/anime/<%= airingAnime[i]["mal_id"] %>"><%= airingAnime[i]["rank"] %>. <%= airingAnime[i]["title"] %></a>
+                            </div>
+                            <p class="text-truncate py-0 mb-1">
+                                <span class="float-left">
+                                    <span class="strong">Airing From: </span>
+                                    <% if( airingAnime[i]["start_date"] != 0 && airingAnime[i]["start_date"] != null) { %>
+                                        <%= airingAnime[i]["start_date"] %>
+                                    <% } else { %>
+                                        ?
+                                    <% } %>
+                                     to 
+                                    <% if( airingAnime[i]["end_date"] != 0 && airingAnime[i]["end_date"] != null) { %>
+                                        <%= airingAnime[i]["end_date"] %>
+                                    <% } else { %>
+                                        ?
+                                    <% } %>
+                                </span>
+                                <span class="float-right">
+                                    <% if( airingAnime[i]["score"] != 0 && airingAnime[i]["score"] != null) { %>
+                                    Score (<%= airingAnime[i]["score"] %>)
+                                    <% } else { %>
+                                    Score (-)
+                                    <% } %>
+                                </span>
+                            </p>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <h6 class="card-header text-center">Top Upcoming Anime</h6>
+                <div class="tab-content">
+                    <ul class="list-group list-group-css list-group-flush">
+                        <% let upcomingAnime = data4["top"] %>
+                        <% for( var i = 0; i < 5; i++) { %>
+                        <li class="list-group-item px-2 py-1">
+                            <div class="hover tiny_logo rounded float-left mr-2">
+                                <a href="/anime/<%= upcomingAnime[i]["mal_id"] %>">
+                                    <img class="rounded max-width" src="<%= upcomingAnime[i]["image_url"] %>">
+                                </a>
+                            </div>
+                            <div class="text-truncate pt-0 pb-1 mb-1 border-bottom">
+                                <a class="manga_title text-truncate " href="/anime/<%= upcomingAnime[i]["mal_id"] %>"><%= upcomingAnime[i]["rank"] %>. <%= upcomingAnime[i]["title"] %></a>
+                            </div>
+                            <p class="text-truncate py-0 mb-1">
+                                <span class="float-left">
+                                    <span class="strong">Airing From: </span>
+                                    <% if( upcomingAnime[i]["start_date"] != 0 && upcomingAnime[i]["start_date"] != null) { %>
+                                        <%= upcomingAnime[i]["start_date"] %>
+                                    <% } else { %>
+                                        ?
+                                    <% } %>
+                                     to 
+                                    <% if( upcomingAnime[i]["end_date"] != 0 && upcomingAnime[i]["end_date"] != null) { %>
+                                        <%= upcomingAnime[i]["end_date"] %>
+                                    <% } else { %>
+                                        ?
+                                    <% } %>
+                                </span>
+                                <span class="float-right">
+                                    <% if( upcomingAnime[i]["score"] != 0 && upcomingAnime[i]["score"] != null) { %>
+                                    Score (<%= upcomingAnime[i]["score"] %>)
+                                    <% } else { %>
+                                    Score (-)
+                                    <% } %>
+                                </span>
+                            </p>
+                        </li>
+                        <% } %>
+                    </ul>                    
+                </div>
+            </div>
+            <div class="card mb-3">
+                <h6 class="card-header text-center"><a href="/top/anime/" style="color: black;">Top Anime Of All Time</a></h6>
+                <div class="tab-content">
+                    <ul class="list-group list-group-css list-group-flush">
+                        <% let anime = data2["top"] %>
+                        <% for( var i = 0; i < 5; i++) { %>
+                        <li class="list-group-item px-2 py-1">
+                            <div class="hover tiny_logo rounded float-left mr-2">
+                                <a href="/anime/<%= anime[i]["mal_id"] %>">
+                                    <img class="rounded max-width" src="<%= anime[i]["image_url"] %>">
+                                </a>
+                            </div>
+                            <div class="text-truncate pt-0 pb-1 mb-1 border-bottom">
+                                <a class="manga_title text-truncate " href="/anime/<%= anime[i]["mal_id"] %>"><%= anime[i]["rank"] %>. <%= anime[i]["title"] %></a>
+                            </div>
+                            <p class="text-truncate py-0 mb-1">
+                                <span class="float-left">
+                                    <span class="strong">Airing From: </span>
+                                    <% if( anime[i]["start_date"] != 0 && anime[i]["start_date"] != null) { %>
+                                        <%= anime[i]["start_date"] %>
+                                    <% } else { %>
+                                        ?
+                                    <% } %>
+                                     to 
+                                    <% if( anime[i]["end_date"] != 0 && anime[i]["end_date"] != null) { %>
+                                        <%= anime[i]["end_date"] %>
+                                    <% } else { %>
+                                        ?
+                                    <% } %>
+                                </span>
+                                <span class="float-right">
+                                    <% if( anime[i]["score"] != 0 && anime[i]["score"] != null) { %>
+                                    Score (<%= anime[i]["score"] %>)
+                                    <% } else { %>
+                                    Score (-)
+                                    <% } %>
+                                </span>
+                            </p>
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <%- include("./partials/footer") %>

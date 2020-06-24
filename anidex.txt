@@ -846,3 +846,51 @@ currentseason
         <% }; %>
     </div>
 </div>
+
+
+
+
+
+Owl Carousel
+
+<div class="container">
+    <div class="mb-3">
+        <h3 class="d-inline">Featured titles</h3>
+        <div class="float-right btn-group" role="group">
+            <button class="btn btn-secondary" id="hled_titles_owl_prev">Prev</button>
+            <button class="btn btn-secondary" id="hled_titles_owl_stop">Pause</button>
+            <button class="btn btn-secondary display-none" id="hled_titles_owl_play"><span class="fas fa-play fa-fw " aria-hidden="true"></span></button>
+            <button class="btn btn-secondary" id="hled_titles_owl_next">Next</button>
+        </div>
+    </div>
+    <div id="hled_titles_owl_carousel" class="mb-4 owl-carousel owl-theme owl-loaded owl-drag">
+        <div class="owl-stage-outer">
+            <div class="owl-stage" style="transform: translate3d(-8084px, 0px, 0px); transition: all 0.25s ease 0s; width: 11092px;">
+            <% data1["anime"].forEach(function(season){ %>
+                <div class="owl-item cloned" style="width: 178px; margin-right: 10px;">
+                    <div class="large_logo rounded">
+                        <div class="hover">
+                            <a href="/anime/<%= season["mal_id"] %>">
+                                <img class="owl-lazy rounded" data-src="<%= season["image_url"] %>" src="<%= season["image_url"] %>">
+                            </a>
+                        </div>
+                        <div class="car-caption px-2 py-1">
+                            <p class="text-truncate m-0">
+                                <a class="manga_title text-truncate white" href="/anime/<%= season["mal_id"] %>"><%= season["title"] %></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+            </div>
+        </div>
+        <div class="owl-nav disabled">
+            <button type="button" role="presentation" class="owl-prev">
+                <span aria-label="Previous">‹</span>
+            </button>
+            <button type="button" role="presentation" class="owl-next">
+                <span aria-label="Next">›</span>
+            </button></div>
+            <div class="owl-dots disabled"></div>
+        </div>
+</div>
