@@ -58,7 +58,7 @@
                     <br>
                     <h6 style="display: inline-block; margin-bottom: 7px;">Studios</h6>: 
                     <% data["studios"].forEach(function(studio){ %>    
-                        <%= studio.name %>
+                        <a style="color: black;" href="/studio/<%= studio["mal_id"] %>"><%= studio.name %></a>
                     <% }) %>
                     <br>
                     <h6 style="display: inline-block; margin-bottom: 7px;">Broadcast</h6>: <%= data.broadcast %>

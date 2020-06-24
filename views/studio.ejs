@@ -1,10 +1,7 @@
 <%- include("./partials/header") %>
 
 <div class="container">
-    <h3>Spring 2020 Season</h3>
-    <a href="/season/2020/summer" class="h6" style="color: black;">
-        Next Season: Summer 2020 Season
-    </a>
+    <h3><%= data["meta"]["name"] %></h3>
     <hr>
     <div class="row mt-1 mx-0">
         <% data["anime"].forEach(function(season){ %>

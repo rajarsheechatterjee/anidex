@@ -134,6 +134,19 @@ app.get("/season/2020/spring", function(req, res){
     });
 });
 
+//================================================================ STUDIO PAGE =================================================================
+
+app.get("/studio/:producerId", function(req, res){
+    var producerId = req.params.producerId;
+    var season_url = "https://api.jikan.moe/v3/producer/" + producerId;
+    request(season_url, function(error, response, body){
+        if(!error && response.statusCode == 200){
+            var data = JSON.parse(body);
+            res.render("studio", {data: data});
+        }
+    });
+});
+
 //============================================================ WEEKLY SCHEDULE PAGE =============================================================
 
 app.get("/schedule", function(req, res){

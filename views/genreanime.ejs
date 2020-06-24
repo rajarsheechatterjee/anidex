@@ -26,7 +26,7 @@
                 <li class="list-inline-item text-primary">Score (<span><%= ani["score"] %></span>)</li>
                 <% } %>
                 <% ani.producers.forEach(function(studio){ %>
-                <li class="list-inline-item text-success"><%= studio["name"] %></li>
+                <li class="list-inline-item text-success"><a class="text-success" href="/studio/<%= studio["mal_id"] %>"><%= studio["name"] %></a></li>
                 <% }) %>
                 <li class="list-inline-item text-secondary">Source: <%= ani["source"] %> 
                     <% if( ani["episodes"] != null){ %>

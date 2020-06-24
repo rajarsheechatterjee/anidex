@@ -8,14 +8,14 @@
                 <% data["recommendations"].forEach(function(recom){ %>
                 <div class="col-md-3 d-flex border-bottom p-2">
                     <div class="float-left mr-2">
-                        <div class="hover rounded">
+                        <div class="hover rounded anime_cover" style="height: 200px;">
                             <a href="/anime/<%= recom["mal_id"] %>">
-                                <img class="rounded max-width sm_recom_cover" src="<%= recom["image_url"] %>">
+                                <img src="<%= recom["image_url"] %>" width="100%" alt="anime-cover">
                             </a>
                         </div>
-                        <div class="pt-0 pb-1 mb-1 title d-flex align-items-center flex-nowrap">
-                            <a class="anime_title text-truncate" href="/anime/<%= recom["mal_id"] %>"><%= recom["title"] %></a>
-                        </div>
+                    </div>
+                    <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
+                        <a class="ml-1 anime_title text-truncate" href="/anime/<%= recom["mal_id"] %>"><%= recom["title"] %></a>
                     </div>
                 </div>
                 <% }) %>
