@@ -25,6 +25,18 @@
                                     <%= data.type %>
                                 </div>
                             </div>
+                            <% if( data.title_synonyms.length != 0){ %>            
+                            <div class="row m-0 py-1 px-0 border-top">
+                                <div class="col-lg-4 col-xl-2 strong">
+                                    Alt Name(s):
+                                </div>
+                                <div class="col-lg-8 col-xl-10">
+                                    <% data["title_synonyms"].forEach(function(title) { %>
+                                        <%= title %>
+                                    <% }) %>  
+                                </div>
+                            </div>
+                            <% } %>
                             <div class="row m-0 py-1 px-0 border-top">
                                 <div class="col-lg-4 col-xl-2 strong">
                                     Score:
@@ -150,17 +162,17 @@
                             </div>
                             <% } %>
                             <% if( typeof data.related["Parent story"] != 'undefined'){ %>
-                                <div class="row m-0 py-1 px-0 border-top">
-                                    <div class="col-lg-4 col-xl-2 strong">
-                                        Parent Story:
-                                    </div>
-                                    <div class="col-lg-8 col-xl-10">
-                                        <% data.related["Parent story"].forEach(function(story) { %>
-                                            <a href="/anime/<%= story["mal_id"] %>"><%= story["name"] %></a><br>
-                                        <% }) %>                                
-                                    </div>
+                            <div class="row m-0 py-1 px-0 border-top">
+                                <div class="col-lg-4 col-xl-2 strong">
+                                    Parent Story:
                                 </div>
-                                <% } %>
+                                <div class="col-lg-8 col-xl-10">
+                                    <% data.related["Parent story"].forEach(function(story) { %>
+                                        <a href="/anime/<%= story["mal_id"] %>"><%= story["name"] %></a><br>
+                                    <% }) %>                                
+                                </div>
+                            </div>
+                            <% } %>
                             <% if( typeof data.related["Side story"] != 'undefined'){ %>
                             <div class="row m-0 py-1 px-0 border-top">
                                 <div class="col-lg-4 col-xl-2 strong">
@@ -168,6 +180,30 @@
                                 </div>
                                 <div class="col-lg-8 col-xl-10">
                                     <% data.related["Side story"].forEach(function(story) { %>
+                                        <a href="/anime/<%= story["mal_id"] %>"><%= story["name"] %></a><br>
+                                    <% }) %>                                
+                                </div>
+                            </div>
+                            <% } %>
+                            <% if( typeof data.related["Alternative version"] != 'undefined'){ %>
+                            <div class="row m-0 py-1 px-0 border-top">
+                                <div class="col-lg-4 col-xl-2 strong">
+                                    Alternative Version(s):
+                                </div>
+                                <div class="col-lg-8 col-xl-10">
+                                    <% data.related["Alternative version"].forEach(function(story) { %>
+                                        <a href="/anime/<%= story["mal_id"] %>"><%= story["name"] %></a><br>
+                                    <% }) %>                                
+                                </div>
+                            </div>
+                            <% } %>
+                            <% if( typeof data.related["Spin-off"] != 'undefined'){ %>
+                            <div class="row m-0 py-1 px-0 border-top">
+                                <div class="col-lg-4 col-xl-2 strong">
+                                    Spin Off(s):
+                                </div>
+                                <div class="col-lg-8 col-xl-10">
+                                    <% data.related["Spin-off"].forEach(function(story) { %>
                                         <a href="/anime/<%= story["mal_id"] %>"><%= story["name"] %></a><br>
                                     <% }) %>                                
                                 </div>
@@ -249,6 +285,16 @@
                                 </div>
                                 <div class="col-8">
                                     <%= data.members %>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item px-2 py-1">
+                            <div class="row">
+                                <div class="col-4 strong">
+                                    Duration:
+                                </div>
+                                <div class="col-8">
+                                    <%= data.duration %>
                                 </div>
                             </div>
                         </li>

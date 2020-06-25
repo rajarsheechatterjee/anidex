@@ -273,7 +273,18 @@ app.get("/anime/:mal_id/recommendations", function(req, res){
     request(recom_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("recommendations", {data: data});
+            res.render("animerecommendations", {data: data});
+        }
+    });
+});
+
+app.get("/manga/:mal_id/recommendations", function(req, res){
+    var mal_id = req.params.mal_id;
+    var recom_url = "https://api.jikan.moe/v3/manga/" + mal_id + "/recommendations";
+    request(recom_url, function(error, response, body){
+        if(!error && response.statusCode == 200){
+            var data = JSON.parse(body);
+            res.render("mangarecommendations", {data: data});
         }
     });
 });
