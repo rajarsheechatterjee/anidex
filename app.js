@@ -35,6 +35,7 @@ app.use(function(req, res, next){
     next();
 });
 
+
 function apiCall (reqOps) {
     return new Promise ( function(resolve, reject){
 
@@ -50,6 +51,7 @@ function apiCall (reqOps) {
     });
 }
 
+//================================================================ INDEX PAGE =================================================================
 
 var currentSeason = {
     url: "https://api.jikan.moe/v3/season/2020/spring",
@@ -79,11 +81,8 @@ var topAnimeUpcoming = {
     }
 };
 
-
-//Index Page
-
 app.get("/index", function(req, res){
-
+    
     let data1, data2, data3, data4;
 
     apiCall(currentSeason)
@@ -111,8 +110,6 @@ app.get("/index", function(req, res){
         console.log("Error occured in one of the API call: ", err);
     });
 });
-
-//================================================================ INDEX PAGE =================================================================
 
 app.get("/", function(req, res){
     res.redirect("index");
@@ -189,7 +186,7 @@ app.get("/top/anime/:page", function(req, res){
     request(url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("anime", {data: data, page: page});
+            res.render("topanime", {data: data, page: page});
         }
     });
 });
@@ -200,7 +197,7 @@ app.get("/top/manga/:page", function(req, res){
     request(manga_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
-            res.render("manga", {data: data, page: page});
+            res.render("topmanga", {data: data, page: page});
         }
     });
 });
@@ -292,11 +289,11 @@ app.get("/manga/:mal_id/recommendations", function(req, res){
 //============================================================ GENRE PAGE =============================================================
 
 app.get("/genre/anime", function(req, res){
-    res.render("genre");
+    res.render("animegenres");
 });
 
 app.get("/genre/manga", function(req, res){
-    res.render("genrem");
+    res.render("mangagenres");
 });
 
 
