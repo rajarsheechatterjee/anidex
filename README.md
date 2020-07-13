@@ -5,9 +5,7 @@ Anidex is a unofficial MyAnimeList.net client
 ### Top Anime
 ![Top Anime](screenshots/topanime.png?raw=true)
 ### Top Manga
-### Top Anime
-![Top Anime](screenshots/topanime.png?raw=true)![Top Manga](screensh
-ots/topmanga.png?raw=true)
+![Top Manga](screenshots/topmanga.png?raw=true)
 ### Current Season
 ![Current Season](screenshots/currentseason.png?raw=true)
 ### Search
