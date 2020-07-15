@@ -51,10 +51,21 @@ function apiCall (reqOps) {
     });
 }
 
+//================================================================ MAL AUTHENTICATION =================================================================
+
+var malLogin = {
+    url: "https://myanimelist.net/login.php",
+    headers: {
+      'Identifier': 'identifier'
+    }
+};
+
+
+
 //================================================================ INDEX PAGE =================================================================
 
 var currentSeason = {
-    url: "https://api.jikan.moe/v3/season/2020/spring",
+    url: "https://api.jikan.moe/v3/season/2020/summer",
     headers: {
       'Identifier': 'identifier'
     }
@@ -118,7 +129,7 @@ app.get("/", function(req, res){
 //================================================================ CURRENT SEASON PAGE =================================================================
 
 app.get("/season/2020/spring", function(req, res){
-    var season_url = "https://api.jikan.moe/v3/season/2020/spring";
+    var season_url = "https://api.jikan.moe/v3/season/2020/summer";
     request(season_url, function(error, response, body){
         if(!error && response.statusCode == 200){
             var data = JSON.parse(body);
