@@ -1,5 +1,7 @@
 # Anidex
 Anidex is a unofficial MyAnimeList.net client
+### Index
+![Top Anime](screenshots/index.png?raw=true)
 ### Top Anime
 ![Top Anime](screenshots/topanime.png?raw=true)
 ### Top Manga
