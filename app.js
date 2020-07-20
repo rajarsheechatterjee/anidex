@@ -259,6 +259,18 @@ app.get("/manga/:mal_id", function(req, res){
     });
 });
 
+app.get("/person/:mal_id", function(req, res){
+    var mal_id = req.params.mal_id;
+    var persondata_url = "https://api.jikan.moe/v3/person/" + mal_id;
+    request(persondata_url, function(error, response, body){
+        if(!error && response.statusCode == 200){
+            var data = JSON.parse(body);
+            res.render("persondata", {data: data});
+        }
+    });
+});
+
+
 //========================================================= SHOW EPISODE DATA PAGE ==========================================================
 
 app.get("/anime/:mal_id/episodes/:page", function(req, res){
