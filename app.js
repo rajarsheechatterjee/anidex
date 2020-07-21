@@ -1,13 +1,12 @@
 const express = require("express"),
-    app = express(),
-    bodyParser = require("body-parser"),
-    request = require("request"),
-    mongoose = require("mongoose"),
-    flash = require("connect-flash"),
-    passport = require("passport"),
-    LocalStrategy = require("passport-local"),
-    User = require("./models/user"),
-    methodOverride = require("method-override");
+      app = express(),
+      bodyParser = require("body-parser"),
+      mongoose = require("mongoose"),
+      flash = require("connect-flash"),
+      passport = require("passport"),
+      LocalStrategy = require("passport-local"),
+      User = require("./models/user"),
+      methodOverride = require("method-override");
 
 const seasonRoutes = require("./routes/season");
 const userRoutes = require("./routes/user");
@@ -48,68 +47,13 @@ app.use(function (req, res, next) {
     next();
 });
 
-
-
-
-//================================================================ MAL AUTHENTICATION =================================================================
-
-// var malLogin = {
-//     url: "https://myanimelist.net/login.php",
-//     headers: {
-//         'Identifier': 'identifier'
-//     }
-// };
-
-//============================================================ WEEKLY SCHEDULE PAGE =============================================================
-
-app.get("/schedule", function (req, res) {
-    var schedule_url = "https://api.jikan.moe/v3/schedule";
-    request(schedule_url, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var data = JSON.parse(body);
-            res.render("schedule", {
-                data: data
-            });
-        }
-    });
-});
-
-
-
-
-
-
-
-
-
-
-//========================================================= SHOW EPISODE DATA PAGE ==========================================================
-
-app.get("/anime/:mal_id/episodes/:page", function (req, res) {
-    var page = req.params.page;
-    var mal_id = req.params.mal_id;
-    var epi_url = "https://api.jikan.moe/v3/anime/" + mal_id + "/episodes/" + page;
-    request(epi_url, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            var data = JSON.parse(body);
-            res.render("episodes", {
-                data: data,
-                page: page,
-                mal_id: mal_id
-            });
-        }
-    });
-});
-
-
-
-app.use(seasonRoutes);
-app.use(userRoutes);
-app.use(genreRoutes);
-app.use(searchRoutes);
-app.use(authRoutes);
 app.use(indexRoutes);
 app.use(animeAndMangaRoutes);
+app.use(searchRoutes);
+app.use(seasonRoutes);
+app.use(genreRoutes);
+app.use(authRoutes);
+app.use(userRoutes);
 
 const PORT = process.env.PORT || 3000;
 

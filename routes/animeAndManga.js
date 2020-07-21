@@ -9,9 +9,11 @@ const request = require("request");
  */
 
 router.get("/top/anime/:page", (req, res) => {
+
     const page = req.params.page;
-    const url = "https://api.jikan.moe/v3/top/anime/" + page;
-    request(url, (error, response, body) => {
+    const animeUrl = "https://api.jikan.moe/v3/top/anime/" + page;
+
+    request(animeUrl, (error, response, body) => {
         if (!error && response.statusCode == 200) {
             const data = JSON.parse(body);
             res.render("topanime", {
@@ -37,9 +39,11 @@ router.get("/top/anime/", (req, res) => {
  */
 
 router.get("/top/manga/:page", (req, res) => {
+
     const page = req.params.page;
-    const manga_url = "https://api.jikan.moe/v3/top/manga/" + page;
-    request(manga_url, (error, response, body) => {
+    const mangaUrl = "https://api.jikan.moe/v3/top/manga/" + page;
+
+    request(mangaUrl, (error, response, body) => {
         if (!error && response.statusCode == 200) {
             const data = JSON.parse(body);
             res.render("topmanga", {
@@ -65,12 +69,14 @@ router.get("/top/manga/", (req, res) => {
  *  @param mal_id id of the anime
  */
 
-app.get("/anime/:mal_id", function (req, res) {
-    var mal_id = req.params.mal_id;
-    var animedata_url = "https://api.jikan.moe/v3/anime/" + mal_id;
-    request(animedata_url, function (error, response, body) {
+router.get("/anime/:mal_id", function (req, res) {
+
+    const mal_id = req.params.mal_id;
+    const animeDataUrl = "https://api.jikan.moe/v3/anime/" + mal_id;
+
+    request(animeDataUrl, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            var data = JSON.parse(body);
+            const data = JSON.parse(body);
             res.render("animedata", {
                 data: data
             });
@@ -85,12 +91,14 @@ app.get("/anime/:mal_id", function (req, res) {
  */
 
 
-app.get("/manga/:mal_id", function (req, res) {
-    var mal_id = req.params.mal_id;
-    var mangadata_url = "https://api.jikan.moe/v3/manga/" + mal_id;
-    request(mangadata_url, function (error, response, body) {
+router.get("/manga/:mal_id", function (req, res) {
+
+    const mal_id = req.params.mal_id;
+    const mangaDataUrl = "https://api.jikan.moe/v3/manga/" + mal_id;
+
+    request(mangaDataUrl, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            var data = JSON.parse(body);
+            const data = JSON.parse(body);
             res.render("mangadata", {
                 data: data
             });
@@ -104,12 +112,14 @@ app.get("/manga/:mal_id", function (req, res) {
  *  @param mal_id id of the person
  */
 
-app.get("/person/:mal_id", function (req, res) {
-    var mal_id = req.params.mal_id;
-    var persondata_url = "https://api.jikan.moe/v3/person/" + mal_id;
+router.get("/person/:mal_id", function (req, res) {
+
+    const mal_id = req.params.mal_id;
+    const persondata_url = "https://api.jikan.moe/v3/person/" + mal_id;
+
     request(persondata_url, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            var data = JSON.parse(body);
+            const data = JSON.parse(body);
             res.render("persondata", {
                 data: data
             });
@@ -123,10 +133,12 @@ app.get("/person/:mal_id", function (req, res) {
  *  @param mal_id id of the anime
  */
 
-app.get("/anime/:mal_id/recommendations", (req, res) => {
+router.get("/anime/:mal_id/recommendations", (req, res) => {
+
     const mal_id = req.params.mal_id;
-    const recom_url = "https://api.jikan.moe/v3/anime/" + mal_id + "/recommendations";
-    request(recom_url, (error, response, body) => {
+    const animeRecomUrl = "https://api.jikan.moe/v3/anime/" + mal_id + "/recommendations";
+
+    request(animeRecomUrl, (error, response, body) => {
         if (!error && response.statusCode == 200) {
             const data = JSON.parse(body);
             res.render("animerecommendations", {
@@ -142,12 +154,12 @@ app.get("/anime/:mal_id/recommendations", (req, res) => {
  *  @param mal_id id of the manga
  */
 
-app.get("/manga/:mal_id/recommendations", (req, res) => {
+router.get("/manga/:mal_id/recommendations", (req, res) => {
 
     const mal_id = req.params.mal_id;
-    const recom_url = "https://api.jikan.moe/v3/manga/" + mal_id + "/recommendations";
+    const mangaRecomUrl = "https://api.jikan.moe/v3/manga/" + mal_id + "/recommendations";
 
-    request(recom_url, (error, response, body) => {
+    request(mangaRecomUrl, (error, response, body) => {
         if (!error && response.statusCode == 200) {
             const data = JSON.parse(body);
             res.render("mangarecommendations", {
@@ -163,16 +175,60 @@ app.get("/manga/:mal_id/recommendations", (req, res) => {
  *  @param producerId id of the studio/producer
  */
 
-app.get("/studio/:producerId", (req, res) => {
+router.get("/studio/:producerId", (req, res) => {
 
-    var producerId = req.params.producerId;
-    var studioUrl = "https://api.jikan.moe/v3/producer/" + producerId;
+    const producerId = req.params.producerId;
+    const studioUrl = "https://api.jikan.moe/v3/producer/" + producerId;
 
     request(studioUrl, (error, response, body) => {
         if (!error && response.statusCode == 200) {
-            var data = JSON.parse(body);
+            const data = JSON.parse(body);
             res.render("studio", {
                 data: data
+            });
+        }
+    });
+});
+
+/**
+ * Returns anime weekly schedule
+ */
+
+router.get("/schedule", (req, res) => {
+
+    const scheduleUrl = "https://api.jikan.moe/v3/schedule";
+
+    request(scheduleUrl, (error, response, body) => {
+        if (!error && response.statusCode == 200) {
+            const data = JSON.parse(body);
+            res.render("schedule", {
+                data: data
+            });
+        }
+    });
+});
+
+/**
+ * Returns episodes of an anime
+ * 
+ *  @param mal_id if of the anime
+ *  @param page page number
+ */
+
+router.get("/anime/:mal_id/episodes/:page", (req, res) => {
+
+    const page = req.params.page;
+    const mal_id = req.params.mal_id;
+
+    const episodesUrl = "https://api.jikan.moe/v3/anime/" + mal_id + "/episodes/" + page;
+
+    request(episodesUrl, (error, response, body) => {
+        if (!error && response.statusCode == 200) {
+            const data = JSON.parse(body);
+            res.render("episodes", {
+                data: data,
+                page: page,
+                mal_id: mal_id
             });
         }
     });

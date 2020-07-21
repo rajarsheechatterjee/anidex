@@ -1,8 +1,0 @@
-{
-    "jshint.config": "",
-    "jshint.options": {"esversion": 9},
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact"
-      },
-    "emmet.triggerExpansionOnTab": true
-}
