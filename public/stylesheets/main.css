@@ -115,3 +115,9 @@ div.tiny_logo {
 .list-group-css {
   border-radius: 4px;
 }
+
+div.tiny_logo_person {
+  width: 42px;
+  height: 63px;
+  overflow: hidden;
+}

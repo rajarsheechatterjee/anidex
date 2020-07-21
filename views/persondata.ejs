@@ -67,6 +67,54 @@
                                     <%= data.about.replace(/\n/g, '') %>
                                 </div>
                             </div>
+                            <div class="row m-0 py-1 px-0 border-top text-center card-header border-left">
+                                <div class="col-lg-12 col-xl-12">
+                                    <span class="strong">Voice Acting Roles</span>
+                                </div>
+                            </div>
+                            <% data.voice_acting_roles.forEach(function(role) { %>
+                            <div class="row m-0 py-1 px-0 border-top border-left">
+                                <div class="col-lg-6 col-xl-6">
+                                    <div class="hover tiny_logo_person rounded float-left mr-2">
+                                        <a href="/anime/<%= role.anime.mal_id %>"><img class="rounded max-width" src=<%= role.anime.image_url %>></a>
+                                    </div>
+                                    <div class="text-truncate pt-0 pb-1 mb-1">
+                                        <a class="manga_title text-truncate" href="/anime/<%= role.anime.mal_id %>"><%= role.anime.name %></a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-xl-6">
+                                    <div class="hover tiny_logo_person rounded float-left mr-2">
+                                        <a href="/anime/<%= role.character.mal_id %>"><img class="rounded max-width" src=<%= role.character.image_url %>></a>
+                                    </div>
+                                    <div class="text-truncate pt-0 pb-1 mb-1">
+                                        <a class="manga_title text-truncate" href="/character/<%= role.anime.mal_id %>"><%= role.character.name %></a>
+                                        <p class="text-truncate py-0 mb-1">
+                                            <span style="font-size: 0.8rem;"><%= role.role %></span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }) %>
+                            <div class="row m-0 py-1 px-0 border-top text-center card-header border-left">
+                                <div class="col-lg-12 col-xl-12">
+                                    <span class="strong">Anime Staff Positions</span>
+                                </div>
+                            </div>
+                            <% data.anime_staff_positions.forEach(function(position) { %>
+                                <div class="row m-0 py-1 px-0 border-top border-left">
+                                    <div class="col-lg-12 col-xl-12">
+                                        <div class="hover tiny_logo_person rounded float-left mr-2">
+                                            <a href="/anime/<%= position.anime.mal_id %>"><img class="rounded max-width" src=<%= position.anime.image_url %>></a>
+                                        </div>
+                                        <div class="text-truncate pt-0 pb-1 mb-1">
+                                            <a class="manga_title text-truncate" href="/anime/<%= position.anime.mal_id %>"><%= position.anime.name %></a>
+                                            <p class="text-truncate py-0 mb-1">
+                                                <span style="font-size: 0.8rem;"><%= position.position %></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }) %>
                         </div>
                     </div>
                 </div>
