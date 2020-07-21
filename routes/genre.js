@@ -24,6 +24,7 @@ router.get("/genre/manga", (req, res) => {
  * 
  *  @param genre_id the id of the specified genre
  */
+
 router.get("/genre/anime/:genre_id", (req, res) => {
 
     const genre_id = req.params.genre_id;

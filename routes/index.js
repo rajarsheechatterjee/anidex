@@ -5,7 +5,7 @@ const request = require("request");
 function apiCall(reqOps) {
     return new Promise(function (resolve, reject) {
 
-        request(reqOps, function (err, res, body) {
+        request(reqOps, (err, res, body) => {
 
             if (!err && res.statusCode == 200) {
                 resolve(JSON.parse(body));
@@ -17,28 +17,28 @@ function apiCall(reqOps) {
     });
 }
 
-var currentSeason = {
+const currentSeason = {
     url: "https://api.jikan.moe/v3/season/2020/summer",
     headers: {
         'Identifier': 'identifier'
     }
 };
 
-var topAnime = {
+const topAnime = {
     url: "https://api.jikan.moe/v3/top/anime",
     headers: {
         'Identifier': 'identifier'
     }
 };
 
-var topAnimeAiring = {
+const topAnimeAiring = {
     url: "https://api.jikan.moe/v3/top/anime/1/airing",
     headers: {
         'Identifier': 'identifier'
     }
 };
 
-var topAnimeUpcoming = {
+const topAnimeUpcoming = {
     url: "https://api.jikan.moe/v3/top/anime/1/upcoming",
     headers: {
         'Identifier': 'identifier'
@@ -88,7 +88,7 @@ router.get("/index", function (req, res) {
  * Redirects to the index page
  */
 
-router.get("/", function (req, res) {
+router.get("/", (req, res) => {
     res.redirect("index");
 });
 
