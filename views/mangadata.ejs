@@ -78,7 +78,7 @@
                                     </div>
                                     <div class="col-lg-8 col-xl-10">
                                         <% data["authors"].forEach(function(auth) { %>
-                                            <%= auth["name"] %>
+                                            <a href="/person/<%= auth["mal_id"] %>"><%= auth["name"] %></a>
                                         <% }) %>                                
                                     </div>
                                 </div>
