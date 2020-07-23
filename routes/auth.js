@@ -12,39 +12,39 @@ const request = require("request");
 //   },
 // };
 
-request("http://myanimelist.net/login.php", (err, res, body) => {
-  if (err) throw err;
+// request("http://myanimelist.net/login.php", (err, res, body) => {
+//   if (err) throw err;
 
-  const $ = cheerio.load(body);
+//   const $ = cheerio.load(body);
 
-  const csrfToken = $("meta[name=csrf_token]").attr("content");
+//   const csrfToken = $("meta[name=csrf_token]").attr("content");
 
-  router.post("/login", (req, res) => {
-    const options = {
-      user_name: req.body.username,
-      password: req.body.password,
-      csrf_token: csrfToken,
-      cookie: "1",
-      sublogin: "Login",
-      submit: "1",
-    };
+//   router.get("/login", (req, res) => {
+//     const options = {
+//       user_name: req.body.username,
+//       password: req.body.password,
+//       csrf_token: csrfToken,
+//       cookie: "1",
+//       sublogin: "Login",
+//       submit: "1",
+//     };
 
-    const mal = {
-      method: "POST",
-      url: "http://myanimelist.net/login.php",
-      headers: {
-        "content-type": "application/x-www-form-urlencoded",
-      },
-      data: options,
-    };
+//     const mal = {
+//       method: "POST",
+//       url: "http://myanimelist.net/login.php",
+//       headers: {
+//         "content-type": "application/x-www-form-urlencoded",
+//       },
+//       data: options,
+//     };
 
-    request(mal, (err, res, body) => {
-      if (err) throw err;
-    });
+//     request(mal, (err, res, body) => {
+//       if (err) throw err;
+//     });
 
-    res.redirect("/top/anime/1");
-  });
-});
+//     res.redirect("/top/anime/1");
+//   });
+// });
 
 /**
  * Returns the login page
@@ -54,10 +54,14 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// router.post("/login", passport.authenticate("local", {
-//     successRedirect: "/top/anime/1",
-//     failureRedirect: "/login"
-// }), (req, res) => {});
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/top/anime/1",
+    failureRedirect: "/login",
+  }),
+  (req, res) => {}
+);
 
 /**
  * Returns the register page

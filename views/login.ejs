@@ -1,24 +1,28 @@
 <%- include("./partials/header") %>
 
-<h1 style="text-align:center; margin-top: 150px;">Login</h1>
-<div style="width:30%; margin:25px auto;">
-    
-    <form action="/login" method="POST">
-        <div class="form-group">
-            <input class="form-control" type="text" name="username" placeholder="Username">
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="password" name="password" placeholder="Password">
-        </div>
-        <div class="form-group">
-            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
-        </div>
-        <a href="/register">Don't have an account?</a>
-        <br>
-        <a href="/anime">Go Back</a>
-        
-    </form>
-    
+<div class="container">
+    <div id="announcement" class="alert alert-info fade show text-center" role="alert">
+        <strong>Notice:</strong>
+        If you want to see your profile details, anime and manga lists then try creating a account with you existing
+        MyAnimeList username and login with the same.
+    </div>
+    <h1 style="text-align:center; margin-top: 150px;">Login</h1>
+    <div style="width:30%; margin:25px auto;">
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
+            </div>
+            <a href="/register">Don't have an account?</a>
+            <br>
+            <a href="/anime">Go Back</a>
+        </form>
+    </div>
 </div>
 
 <%- include("./partials/footer") %>
