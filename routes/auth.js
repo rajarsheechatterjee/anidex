@@ -4,6 +4,7 @@ const passport = require("passport");
 const cheerio = require("cheerio");
 const User = require("../models/user");
 const request = require("request");
+const axios = require("axios");
 
 // const malUrl = {
 //   url: "http://myanimelist.net/login.php",
@@ -44,6 +45,40 @@ const request = require("request");
 
 //     res.redirect("/top/anime/1");
 //   });
+// });
+
+// const getCsrfToken = () => {
+//   request("http://myanimelist.net/login.php", (err, res, body) => {
+//     if (err) throw err;
+
+//     const $ = cheerio.load(body);
+
+//     const csrfToken = $("meta[name=csrf_token]").attr("content");
+
+//     return csrfToken;
+//   });
+// };
+
+// router.post("/login", (req, res) => {
+//   const formData = {
+//     user_name: req.body.username,
+//     password: req.body.password,
+//     csrf_token: getCsrfToken(),
+//     cookie: "1",
+//     sublogin: "Login",
+//     submit: "1",
+//   };
+
+//   const malLogin = (formData) => {
+//     const config = {
+//       headers: {
+//         "content-type": "application/x-www-form-urlencoded",
+//       },
+//     };
+
+//     axios.post("http://myanimelist.net/login.php", formData, config);
+//   };
+//   res.redirect("/top/anime/1");
 // });
 
 /**
