@@ -121,3 +121,8 @@ div.tiny_logo_person {
   height: 63px;
   overflow: hidden;
 }
+
+img:hover {
+  opacity: 0.8;
+  transition-timing-function: ease-out;
+}

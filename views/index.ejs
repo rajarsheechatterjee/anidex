@@ -14,7 +14,7 @@
                     <div class="class anime-entry col-lg-6 border-bottom pl-0 my-1">
                     <div class="rounded anime_cover mr-2">
                         <a href="/anime/<%= season[i]["mal_id"] %>">
-                            <img src="<%= season[i]["image_url"] %>" width="100%" alt="anime-cover">
+                            <img class="coverimage" src="<%= season[i]["image_url"] %>" width="100%" alt="anime-cover">
                         </a>
                     </div>
                     <div class="text-truncate title mb-1 d-flex flex-nowrap align-items-center">
@@ -65,7 +65,7 @@
                         <li class="list-group-item px-2 py-1">
                             <div class="hover tiny_logo rounded float-left mr-2">
                                 <a href="/anime/<%= airingAnime[i]["mal_id"] %>">
-                                    <img class="rounded max-width" src="<%= airingAnime[i]["image_url"] %>">
+                                    <img class="rounded coverimage max-width" src="<%= airingAnime[i]["image_url"] %>">
                                 </a>
                             </div>
                             <div class="text-truncate pt-0 pb-1 mb-1 border-bottom">
@@ -108,7 +108,7 @@
                         <li class="list-group-item px-2 py-1">
                             <div class="hover tiny_logo rounded float-left mr-2">
                                 <a href="/anime/<%= upcomingAnime[i]["mal_id"] %>">
-                                    <img class="rounded max-width" src="<%= upcomingAnime[i]["image_url"] %>">
+                                    <img class="rounded coverimage max-width" src="<%= upcomingAnime[i]["image_url"] %>">
                                 </a>
                             </div>
                             <div class="text-truncate pt-0 pb-1 mb-1 border-bottom">
@@ -151,7 +151,7 @@
                         <li class="list-group-item px-2 py-1">
                             <div class="hover tiny_logo rounded float-left mr-2">
                                 <a href="/anime/<%= anime[i]["mal_id"] %>">
-                                    <img class="rounded max-width" src="<%= anime[i]["image_url"] %>">
+                                    <img class="rounded coverimage max-width" src="<%= anime[i]["image_url"] %>">
                                 </a>
                             </div>
                             <div class="text-truncate pt-0 pb-1 mb-1 border-bottom">
