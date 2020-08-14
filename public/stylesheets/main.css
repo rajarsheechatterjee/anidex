@@ -27,11 +27,15 @@ a {
   text-decoration: none;
 }
 
-a.anime_title, a.anime_title:hover, a.anime_title:focus {
+a.anime_title,
+a.anime_title:hover,
+a.anime_title:focus {
   font-weight: bold;
 }
 
-a.manga_title, a.manga_title:hover, a.manga_title:focus {
+a.manga_title,
+a.manga_title:hover,
+a.manga_title:focus {
   font-weight: bold;
 }
 
@@ -77,6 +81,7 @@ img.max-width {
 .strong {
   font-weight: bold;
 }
+
 .score {
   font-weight: 500;
 }
@@ -124,5 +129,18 @@ div.tiny_logo_person {
 
 img:hover {
   opacity: 0.8;
-  transition-timing-function: ease-out;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+.nav-link:hover {
+  background-color: rgba(230, 230, 230, 1);
+  transition-timing-function: ease-in-out;
+  border-radius: 9999px;
+  transition-duration: 0.2s;
+}
+
+.dropdown-item:focus {
+  color: white;
+  background-color: #17a2ba;
 }
