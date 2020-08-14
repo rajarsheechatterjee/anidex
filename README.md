@@ -20,11 +20,21 @@ Anidex is a unofficial MyAnimeList.net client
 * NODE should be installed: `NODE LTS version > 10.12.8`
 * MongoDB should be installed: `MongoDB version > 4.1.0`
 
-### Start the server
+### Installation
+1. Clone the repo
     ```
-    node app (run the server)
+    git clone https://github.com/rajarsheechatterjee/anidex.git
     ```
-
+    
+2. Installing dependencies
+    ```
+    npm install
+    ```
+3. Run the server
+    ```
+    npm start
+    ```
+### Screenshots
 ### Index
 ![Top Anime](screenshots/index.png?raw=true)
 ### Top Anime
