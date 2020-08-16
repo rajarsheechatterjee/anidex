@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-xl-3 col-lg-4 col-md-5">
                             <a href="/person/<%= data.mal_id %>">
-                                <img class="rounded" width="100%" src="<%= data.image_url %>">
+                                <img class="rounded opac" width="100%" src="<%= data.image_url %>">
                             </a>
                         </div>
                         <div class="col-xl-9 col-lg-8 col-md-7">
@@ -74,7 +74,7 @@
                             </div>
                             <% data.voice_acting_roles.forEach(function(role) { %>
                             <div class="row m-0 py-1 px-0 border-top border-left">
-                                <div class="col-lg-6 col-xl-6">
+                                <div class="col-lg-6 col-xl-6 col-sm-6 col-6">
                                     <div class="hover tiny_logo_person rounded float-left mr-2">
                                         <a href="/anime/<%= role.anime.mal_id %>"><img class="rounded max-width" src=<%= role.anime.image_url %>></a>
                                     </div>
@@ -82,7 +82,7 @@
                                         <a class="manga_title text-truncate" href="/anime/<%= role.anime.mal_id %>"><%= role.anime.name %></a>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-xl-6">
+                                <div class="col-lg-6 col-xl-6 col-sm-6 col-6">
                                     <div class="hover tiny_logo_person rounded float-left mr-2">
                                         <a href="/character/<%= role.character.mal_id %>"><img class="rounded max-width" src=<%= role.character.image_url %>></a>
                                     </div>

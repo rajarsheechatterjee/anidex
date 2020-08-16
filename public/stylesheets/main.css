@@ -133,6 +133,10 @@ img:hover {
   transition-timing-function: ease-in-out;
 }
 
+img.opac:hover {
+  opacity: 1;
+}
+
 .nav-link:hover {
   background-color: rgba(230, 230, 230, 1);
   transition-timing-function: ease-in-out;

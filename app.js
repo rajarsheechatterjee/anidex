@@ -6,7 +6,10 @@ const express = require("express"),
       passport = require("passport"),
       LocalStrategy = require("passport-local"),
       User = require("./models/user"),
-      methodOverride = require("method-override");
+      methodOverride = require("method-override"),
+      config = require('config'),
+      db = config.get('mongoURI');
+
 
 const seasonRoutes = require("./routes/season");
 const userRoutes = require("./routes/user");
@@ -16,7 +19,7 @@ const authRoutes = require("./routes/auth");
 const indexRoutes = require("./routes/index");
 const animeAndMangaRoutes = require("./routes/animeAndManga");
 
-mongoose.connect("mongodb://localhost/Anidex", {
+mongoose.connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
