@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "set NODE_ENV=devlopment&&node app.js",
-    "start-prod": "set NODE_ENV=production&&node app.js",
+    "start": "node app.js",
     "server": "nodemon app.js"
   },
   "author": "Rajarshee Chatterjee",
