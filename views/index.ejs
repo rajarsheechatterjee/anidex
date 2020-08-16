@@ -44,8 +44,8 @@
                             <% } %>
                         </li>
                     </ul>
-                    <div style="height: 210px; overflow: hidden;">
-                        <%= season[i]["synopsis"].substring(0,250) %>...
+                    <div style="overflow: hidden;">
+                        <%= season[i]["synopsis"].substring(0,200) %>...
                         <br>
                         <% if( season[i]["airing_start"] != null && season[i].type != null){ %>
                             <span class="text-info"><em><%= season[i].type %>- <%= season[i]["airing_start"].substring(0,10) %></em></span>
