@@ -111,7 +111,13 @@ img.max-width {
 
 @media (min-width: 992px) {
   .container {
-    max-width: 960px;
+    max-width: 992px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .container {
+    max-width: 1080px;
   }
 }
 
