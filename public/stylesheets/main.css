@@ -146,5 +146,10 @@ img.opac:hover {
 
 .dropdown-item:focus {
   color: white;
-  background-color: #17a2ba;
+  background-color: #17a2ba !important;
+}
+
+.dropdown-item:active {
+  color: white;
+  background-color: #17a2ba !important;
 }

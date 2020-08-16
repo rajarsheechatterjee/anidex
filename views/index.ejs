@@ -2,7 +2,7 @@
 
 <div class="container">
     <div class="row mt-1 mx-0">
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-12">
             <h3>Summer 2020 Season</h3>
             <a href="/season/2020/fall" class="h6" style="color: black;">
                 Next Season: Fall 2020 Season
@@ -36,7 +36,7 @@
                         <% season[i].producers.forEach(function(studio){ %>
                         <li class="list-inline-item text-success"><a class="text-success" href="/studio/<%= studio["mal_id"] %>"><%= studio["name"] %></a></li>
                         <% }) %>
-                        <li class="list-inline-item text-secondary">Source: <%= season[i]["source"] %> 
+                        <li class="list-inline-item text-secondary"><%= season[i]["source"] %> 
                             <% if( season[i]["episodes"] != null){ %>
                                 | <%= season[i]["episodes"] %> Eps
                             <% } else { %>
@@ -55,7 +55,7 @@
                 <% }; %>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-12">
             <div class="card mb-3">
                 <h6 class="card-header text-center">Top Airing Anime</h6>
                 <div class="tab-content">
