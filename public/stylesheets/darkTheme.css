@@ -40,3 +40,40 @@ body.dark a {
 .dark .border-bottom {
     border-bottom: 1px solid #999 !important;
 }
+
+.dark .card {
+    background-color: #2e3439;
+    color: #ccc;
+    border: 1px solid rgba(0,0,0,.1);
+}
+
+.dark select {
+    border: 1px solid rgba(46, 52, 70, 1);
+}
+
+.dark input {
+    border: 1px solid rgba(46, 52, 70, 1);
+}
+
+.dark .form-control, .form-control:focus, .code-box {
+    color: #b5b5b5;
+    background-color: #25282b;
+}
+
+.dark .nav-link:hover {
+    color: #ccc;
+    background-color: #272b30;
+    border-radius: 4px;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #ccc;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
+}
