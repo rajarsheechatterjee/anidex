@@ -13,11 +13,11 @@ body.dark a {
 }
 
 .dark .navbar-brand {
-    color: white;
+    color: #ccc;
 }
 
 .dark .navbar-brand:hover {
-    color: white;
+    color: #ccc;
 }
 
 .dark .badge-light {
@@ -38,13 +38,12 @@ body.dark a {
 }
 
 .dark .border-bottom {
-    border-bottom: 1px solid #999 !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
 
 .dark .card {
     background-color: #2e3439;
-    color: #ccc;
-    border: 1px solid rgba(0,0,0,.1);
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .dark select {
@@ -76,4 +75,61 @@ body.dark a {
     color: #fff;
     border-color: rgba(0, 0, 0, 0.3);
     background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dark .navbar-brand:focus {
+    color: #ccc;
+}
+
+.dark .list-group-item {
+    background-color: #25282b;
+}
+
+.dark .tab-content {
+    background-color: #25282b;
+}
+
+.dark .dropdown-menu {
+    background-color: #272b30;
+}
+
+.dark .dropdown-divider {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.dark .dropdown-item:hover {
+    background-color: #2e3439;
+    color: #ccc;
+}
+
+.dark .btn-outline-info {
+    color: #ccc;
+    border-color: #ccc;
+}
+
+.dark .btn-outline-info:hover, .dark .btn-outline-info:focus, .dark .btn-outline-info:active {
+    color: #ccc;
+    background-color: #2e3439 !important;
+    box-shadow: 0 0 0 0.2rem rgba(46, 52, 57,.5) !important;
+    border-color: #2e3439 !important;
+}
+
+.show>.btn-outline-info.dropdown-toggle {
+    color: #ccc;
+    background-color: #2e3439 !important;
+    border-color: #2e3439 !important;
+}
+
+.show>.btn-outline-info.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(46, 52, 57,.5) !important;
+}
+
+.dark input:hover, .dark input:focus, .dark input:active {
+    box-shadow: 0 0 0 0.2rem rgba(46, 52, 57,.5) !important;
+    border-color: rgba(0, 0, 0, .5) !important;
+}
+
+.dark select:hover, .dark select:focus, .dark select:active {
+    box-shadow: 0 0 0 0.2rem rgba(46, 52, 57,.5) !important;
+    border-color: rgba(0, 0, 0, .5) !important;
 }
