@@ -7,6 +7,10 @@ body.dark a {
   color: #ccc;
 }
 
+.dark .nextSeason:hover {
+    color: #ccc;
+}
+
 .dark .bg-light {
   background-color: #2e3439 !important;
   background-image: linear-gradient(to bottom, #272b30 0%, #2e3439 100%) !important;
@@ -26,11 +30,11 @@ body.dark a {
 }
 
 .dark .navbar-light .navbar-nav .active>.nav-link {
-    color: rgba(255, 255, 255, 0.5);;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .dark .navbar-light .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.5);;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .dark .text-primary, .dark .text-success, .dark .text-secondary, .text-info {
@@ -39,6 +43,14 @@ body.dark a {
 
 .dark .border-bottom {
     border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .border-top {
+    border-top: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .border-left {
+    border-left: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
 
 .dark .card {
@@ -97,8 +109,8 @@ body.dark a {
     border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.dark .dropdown-item:hover {
-    background-color: #2e3439;
+.dark .dropdown-item:hover, .dark .dropdown-item:focus, .dark .dropdown-item:active {
+    background-color: #2e3439 !important;
     color: #ccc;
 }
 
@@ -108,7 +120,7 @@ body.dark a {
 }
 
 .dark .btn-outline-info:hover, .dark .btn-outline-info:focus, .dark .btn-outline-info:active {
-    color: #ccc;
+    color: #999;
     background-color: #2e3439 !important;
     box-shadow: 0 0 0 0.2rem rgba(46, 52, 57,.5) !important;
     border-color: #2e3439 !important;
@@ -132,4 +144,41 @@ body.dark a {
 .dark select:hover, .dark select:focus, .dark select:active {
     box-shadow: 0 0 0 0.2rem rgba(46, 52, 57,.5) !important;
     border-color: rgba(0, 0, 0, .5) !important;
+}
+
+.dark .list-group-item-action:hover, .dark .list-group-item-action:focus, .dark .list-group-item-action:active {
+    color: #999 !important;
+}
+
+/* .dark .btn-primary {
+    background-color: #3f869b !important;
+}
+
+.dark .btn-primary:hover {
+    background-color: rgba(63, 134, 155, 0.8) !important;
+}
+
+.dark .btn-success {
+    background-color: rgba(64, 128, 64, 1) !important;
+    border-color: rgba(64, 128, 64, 1);
+}
+
+.dark .btn-success:hover {
+    background-color: rgba(64, 128, 64, 0.8) !important;
+    border-color: rgba(64, 128, 64, 0.8) !important;
+
+} */
+
+.dark .card-body {
+    background-color: #25282b;
+}
+
+.dark .strong {
+     color: #ccc;
+}
+
+.dark .page-link {
+    background-color: #25282b !important;
+    color: #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }

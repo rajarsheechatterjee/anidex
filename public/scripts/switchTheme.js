@@ -1,3 +1,6 @@
+/**
+ * Loads theme when the page loads
+ */
 function loadTheme() {
     const checkBox = document.getElementById("customSwitch1");
 
@@ -7,6 +10,9 @@ function loadTheme() {
     }
 }
 
+/**
+ * Switch between themes
+ */
 function switchTheme2() {
     const checkBox = document.getElementById("customSwitch1");
 
