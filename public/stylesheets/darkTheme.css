@@ -1,0 +1,189 @@
+body.dark {
+    color: #999;
+    background-color: #272b30;
+  }
+  
+body.dark a {
+  color: #ccc;
+}
+
+.dark .nextSeason:hover {
+    color: #ccc;
+}
+
+.dark .bg-light {
+  background-color: #2e3439 !important;
+  background-image: linear-gradient(to bottom, #272b30 0%, #2e3439 100%) !important;
+}
+
+.dark .navbar-brand {
+    color: #ccc;
+}
+
+.dark .navbar-brand:hover {
+    color: #ccc;
+}
+
+.dark .badge-light {
+    background-color: #2e3439;
+    color: #999;
+}
+
+.dark .badge-primary {
+    background-color: #2e3439;
+    color: #999;
+}
+
+.dark .navbar-light .navbar-nav .active>.nav-link {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .navbar-light .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.dark .text-primary, .dark .text-success, .dark .text-secondary, .text-info {
+    color: #ccc !important;
+}
+
+.dark .border-bottom {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .border-top {
+    border-top: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .border-left {
+    border-left: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .card {
+    background-color: #2e3439;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.dark select {
+    border: 1px solid rgba(46, 52, 70, 1);
+}
+
+.dark input {
+    border: 1px solid rgba(46, 52, 70, 1);
+}
+
+.dark .form-control, .form-control:focus, .code-box {
+    color: #b5b5b5;
+    background-color: #25282b;
+}
+
+.dark .nav-link:hover {
+    color: #ccc;
+    background-color: #272b30;
+    border-radius: 4px;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.2s;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+    color: #ccc;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    color: #fff;
+    border-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.dark .navbar-brand:focus {
+    color: #ccc;
+}
+
+.dark .list-group-item {
+    background-color: #25282b;
+}
+
+.dark .tab-content {
+    background-color: #25282b;
+}
+
+.dark .dropdown-menu {
+    background-color: #272b30;
+}
+
+.dark .dropdown-divider {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.dark .dropdown-item:hover, .dark .dropdown-item:focus, .dark .dropdown-item:active {
+    background-color: #2e3439 !important;
+    color: #ccc;
+}
+
+.dark .btn-outline-info {
+    color: #ccc;
+    border-color: #ccc;
+}
+
+.dark .btn-outline-info:hover, .dark .btn-outline-info:focus, .dark .btn-outline-info:active {
+    color: #999;
+    background-color: #2e3439 !important;
+    box-shadow: 0 0 0 0.2rem rgba(46, 52, 57,.5) !important;
+    border-color: #2e3439 !important;
+}
+
+.show>.btn-outline-info.dropdown-toggle {
+    color: #ccc;
+    background-color: #2e3439 !important;
+    border-color: #2e3439 !important;
+}
+
+.show>.btn-outline-info.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgba(46, 52, 57,.5) !important;
+}
+
+.dark input:hover, .dark input:focus, .dark input:active {
+    box-shadow: 0 0 0 0.2rem rgba(46, 52, 57,.5) !important;
+    border-color: rgba(0, 0, 0, .5) !important;
+}
+
+.dark select:hover, .dark select:focus, .dark select:active {
+    box-shadow: 0 0 0 0.2rem rgba(46, 52, 57,.5) !important;
+    border-color: rgba(0, 0, 0, .5) !important;
+}
+
+.dark .list-group-item-action:hover, .dark .list-group-item-action:focus, .dark .list-group-item-action:active {
+    color: #999 !important;
+}
+
+/* .dark .btn-primary {
+    background-color: #3f869b !important;
+}
+
+.dark .btn-primary:hover {
+    background-color: rgba(63, 134, 155, 0.8) !important;
+}
+
+.dark .btn-success {
+    background-color: rgba(64, 128, 64, 1) !important;
+    border-color: rgba(64, 128, 64, 1);
+}
+
+.dark .btn-success:hover {
+    background-color: rgba(64, 128, 64, 0.8) !important;
+    border-color: rgba(64, 128, 64, 0.8) !important;
+
+} */
+
+.dark .card-body {
+    background-color: #25282b;
+}
+
+.dark .strong {
+     color: #ccc;
+}
+
+.dark .page-link {
+    background-color: #25282b !important;
+    color: #ccc;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
