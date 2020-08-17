@@ -144,6 +144,11 @@ img.opac:hover {
   transition-duration: 0.2s;
 }
 
+.nav-link {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
 .dropdown-item:focus {
   color: white;
   background-color: #17a2ba !important;

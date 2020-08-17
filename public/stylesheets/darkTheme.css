@@ -1,0 +1,42 @@
+body.dark {
+    color: #999;
+    background-color: #272b30;
+  }
+  
+body.dark a {
+  color: #ccc;
+}
+
+.dark .bg-light {
+  background-color: #2e3439 !important;
+  background-image: linear-gradient(to bottom, #272b30 0%, #2e3439 100%) !important;
+}
+
+.dark .navbar-brand {
+    color: white;
+}
+
+.dark .navbar-brand:hover {
+    color: white;
+}
+
+.dark .badge-light {
+    background-color: #2e3439;
+    color: #999;
+}
+
+.dark .navbar-light .navbar-nav .active>.nav-link {
+    color: rgba(255, 255, 255, 0.5);;
+}
+
+.dark .navbar-light .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.5);;
+}
+
+.dark .text-primary, .dark .text-success, .dark .text-secondary, .text-info {
+    color: #ccc !important;
+}
+
+.dark .border-bottom {
+    border-bottom: 1px solid #999 !important;
+}
