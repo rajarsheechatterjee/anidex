@@ -14,9 +14,9 @@
                         </div>
                         <div class="pt-0 pb-1 mb-1 title border-bottom d-flex align-items-center flex-nowrap">
                             <a class="anime_title text-truncate " href="/anime/<%= ani["mal_id"] %>"><%= ani["title"] %></a>
-                            <span class="badge badge-light"><%= ani["type"] %></span>
+                            <span class="badge badge-light" style="margin-left: 5px;"><%= ani["type"] %></span>
                             <% if( ani["airing_status"] == 1) { %>
-                            <span class="badge badge-primary">Airing</span>
+                            <span class="badge badge-primary" style="margin-left: 5px;">Airing</span>
                             <% } %>
                         </div>
                         <div class="text-truncate py-0 mb-1">
@@ -62,3 +62,5 @@
         </div>
     </div>
 </div>
+
+<%- include("./partials/footer") %>

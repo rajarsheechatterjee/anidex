@@ -37,10 +37,16 @@
                 <%= anime["synopsis"] %>
                 <br>
                 <% if( anime["end_date"] != null ){ %>
-                    <span class="text-info"><em>Aired: <%= anime["start_date"].substring(0,10) %> to <%= anime["end_date"].substring(0,10) %></em></span>
+                    <% if( anime["type"] == 'TV' || anime["type"] == 'Movie' || anime["type"] == 'Music' || anime["type"] == 'ONA' || anime["type"] == 'OVA' || anime["type"] == 'Special'){ %>
+                        <span class="text-info"><em>Aired: <%= anime["start_date"].substring(0,10) %> to <%= anime["end_date"].substring(0,10) %></em></span>
+                    <% } else { %>
+                        <span class="text-info"><em>Published: <%= anime["start_date"].substring(0,10) %> to <%= anime["end_date"].substring(0,10) %></em></span>
+                    <% } %>
                 <% } %>
             </div>
         </div>
         <% }); %>
     </div>
 </div>
+
+<%- include("./partials/footer") %>

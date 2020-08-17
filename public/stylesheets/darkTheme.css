@@ -29,6 +29,11 @@ body.dark a {
     color: #999;
 }
 
+.dark .badge-primary {
+    background-color: #2e3439;
+    color: #999;
+}
+
 .dark .navbar-light .navbar-nav .active>.nav-link {
     color: rgba(255, 255, 255, 0.5);
 }
