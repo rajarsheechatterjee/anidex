@@ -6,6 +6,7 @@ function loadTheme() {
 
     if (localStorage.getItem('mode') === 'dark') {
         document.querySelector('body').classList.add('dark');
+        document.getElementById("switchLabel").innerHTML = "Dark Theme";
         checkBox.checked = true;
     }
 }
@@ -19,8 +20,10 @@ function switchTheme2() {
     if (checkBox.checked == true){
         localStorage.setItem('mode','dark');
         document.querySelector('body').classList.add('dark');
+        document.getElementById("switchLabel").innerHTML = "Dark Theme";
     } else {
         localStorage.setItem('mode','light');
         document.querySelector('body').classList.remove('dark');
+        document.getElementById("switchLabel").innerHTML = "Switch Theme";
     }
 }

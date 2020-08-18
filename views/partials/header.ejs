@@ -72,18 +72,18 @@
                                 class="sr-only">(current)</span></a>
                     </li>
                 </ul>
-                <div class="custom-control custom-switch"  style="margin-right: 15px;">
+                <div class="custom-control custom-switch switch-margin  switch-border">
                     <input type="checkbox" class="custom-control-input" id="customSwitch1" onclick="switchTheme2()">
-                    <label class="custom-control-label" for="customSwitch1">Switch Theme</label>
+                    <label class="custom-control-label" for="customSwitch1" id="switchLabel">Switch Theme</label>
                 </div>
-                <form class="form-inline my-2 my-lg-0" action="/search" method="GET" style="margin-right: 15px;">
-                    <select class="form-control" name="type">
+                <form class="form-inline my-2 my-lg-0 form-margin collapse-border" action="/search" method="GET">
+                    <select class="form-control form-control-collapse select-collapse" name="type">
                         <option selected value="anime">Anime</option>
                         <option value="manga">Manga</option>
                         <option value="people">Person</option>
                     </select>
-                    <input class="form-control" type="text" placeholder="Search Anime & Manga Titles" name="search"  style="margin-right: 8px;" minlength="4" required>
-                    <button class="btn btn-info" type="submit" style="margin-right: 5px;">Search</button>
+                    <input class="form-control form-control-collapse inpt-mrgn input-collapse" type="text" placeholder="Search Anime & Manga Titles" name="search" minlength="4" required>
+                    <button class="btn btn-info btn-margin" type="submit">Search</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <% if(!currentUser){ %>
