@@ -71,7 +71,20 @@ body.dark a {
     border: 1px solid rgba(46, 52, 70, 1);
 }
 
-.dark .form-control, .form-control:focus, .code-box {
+.dark .btn-info {
+    background-color: #25282b;
+    border-color: #25282b;
+    color: #ccc;
+}
+
+.dark .btn-info:hover, .dark .btn-info:active, .dark .btn-info:focus {
+  background-color: rgba(37, 40, 43, 0.5) !important;
+  border-color: rgba(37, 40, 43, 0.5) !important;
+  box-shadow: 0 0 0 0.2rem rgba(46, 52, 57,.5) !important;
+  color: #ccc;
+}
+
+.dark .form-control, .dark .form-control:focus, .code-box {
     color: #b5b5b5;
     background-color: #25282b;
 }
@@ -79,7 +92,7 @@ body.dark a {
 .dark .nav-link:hover {
     color: #ccc;
     background-color: #272b30;
-    border-radius: 4px;
+    border-radius: 6px;
     transition-timing-function: ease-in-out;
     transition-duration: 0.2s;
 }

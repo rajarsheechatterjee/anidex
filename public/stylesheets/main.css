@@ -105,9 +105,96 @@ img.max-width {
   color: #337ab7;
 }
 
+.inpt-mrgn {
+  margin-right: 8px;
+}
+
+.switch-margin {
+  margin-right: 15px;
+}
+
+.form-margin {
+  margin-right: 15px;
+}
+
+.btn-margin {
+  margin-right: 5px;
+}
+
 @media (min-width: 1440px) {
   .container {
     max-width: 1410px;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-link {
+    margin: 0;
+  }
+  .inpt-mrgn {
+    margin-right: 0;
+  }
+  .switch-margin {
+    margin-right: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-left: 8px;
+  }
+  .form-control-collapse {
+    height: 28px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-right: 0;
+    border-radius: 6px; 
+  }
+  .collapse-border {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+  }
+  .dark .collapse-border {
+    border-bottom: 1px solid rgba(37, 40, 43, 0.9);
+    border-top: 1px solid rgba(37, 40, 43, 0.9);
+  }
+  .btn-info {
+    height: 28px;
+    padding: 0px 0.75rem;
+    border-radius: 6px;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .dark .btn-info {
+    background-color: #24292e;
+    border-color: #24292e;
+    color: #ccc;
+  }
+  .dark .btn-info:hover {
+    background-color: rgba(37, 40, 43, 0.5) !important;
+    border-color: rgba(37, 40, 43, 0.5) !important;
+  }
+  .select-collapse {
+    margin-bottom: 8px;
+  }
+  .input-collapse {
+    margin-bottom: 8px;
+  }
+  .btn-margin {
+    margin-right: 0;
+  }
+  .dark .nav-link {
+    color: #ccc !important;
+    border-bottom: 1px solid rgba(37, 40, 43, 0.9);
+  }
+  .dropdown-menu{ 
+    margin-right: 8px !important;
+  }
+  .dropdown-item {
+    padding: 0rem 1.5rem;
+  }
+  .navbar-brand {
+    margin-left: 8px;
   }
 }
 
