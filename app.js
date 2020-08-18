@@ -6,8 +6,9 @@ const express = require("express"),
       passport = require("passport"),
       LocalStrategy = require("passport-local"),
       User = require("./models/user"),
-      methodOverride = require("method-override");
-
+      methodOverride = require("method-override"),
+      dotenv = require('dotenv');
+      dotenv.config();
 
 const seasonRoutes = require("./routes/season");
 const userRoutes = require("./routes/user");
@@ -17,7 +18,7 @@ const authRoutes = require("./routes/auth");
 const indexRoutes = require("./routes/index");
 const animeAndMangaRoutes = require("./routes/animeAndManga");
 
-mongoose.connect("mongodb+srv://admin:admin@anidex.fpo2v.mongodb.net/<dbname>?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
