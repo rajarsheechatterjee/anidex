@@ -18,7 +18,7 @@ const authRoutes = require("./routes/auth");
 const indexRoutes = require("./routes/index");
 const animeAndMangaRoutes = require("./routes/animeAndManga");
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(String(process.env.MONGO_URI), {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
