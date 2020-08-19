@@ -42,7 +42,7 @@ body.dark a {
     color: rgba(255, 255, 255, 0.5);
 }
 
-.dark .text-primary, .dark .text-success, .dark .text-secondary, .text-info {
+.dark .text-primary, .dark .text-success, .dark .text-secondary, .dark .text-info {
     color: #ccc !important;
 }
 

@@ -115,6 +115,11 @@ img.max-width {
 
 .form-margin {
   margin-right: 15px;
+  flex-wrap: nowrap;
+}
+
+.auth-buttons {
+  flex-wrap: nowrap;
 }
 
 .btn-margin {
@@ -127,7 +132,20 @@ img.max-width {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 576px) {
+  .select-collapse {
+    margin-bottom: 8px !important;
+  }
+  .input-collapse {
+    margin-bottom: 8px !important;
+  }
+  .btn-info {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+}
+
+@media (max-width: 1200px) {
   .nav-link {
     margin: 0;
   }
@@ -157,12 +175,16 @@ img.max-width {
     border-bottom: 1px solid rgba(37, 40, 43, 0.9);
     border-top: 1px solid rgba(37, 40, 43, 0.9);
   }
+  .collapse-border {
+    border-top: 1px solid rgba(230, 230, 230, 1);
+    border-bottom: 1px solid rgba(230, 230, 230, 1);
+  }
   .btn-info {
     height: 28px;
     padding: 0px 0.75rem;
     border-radius: 6px;
-    margin-left: auto;
-    margin-right: 0;
+    margin-left: 5px;
+    margin-right: auto;
   }
 
   .dark .btn-info {
@@ -175,10 +197,10 @@ img.max-width {
     border-color: rgba(37, 40, 43, 0.5) !important;
   }
   .select-collapse {
-    margin-bottom: 8px;
+    margin-bottom: 0px;
   }
   .input-collapse {
-    margin-bottom: 8px;
+    margin-bottom: 0px;
   }
   .btn-margin {
     margin-right: 0;
@@ -186,6 +208,9 @@ img.max-width {
   .dark .nav-link {
     color: #ccc !important;
     border-bottom: 1px solid rgba(37, 40, 43, 0.9);
+  }
+  .nav-link {
+    border-bottom: 1px solid rgba(230, 230, 230, 1);
   }
   .dropdown-menu{ 
     margin-right: 8px !important;
