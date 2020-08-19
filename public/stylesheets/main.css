@@ -133,6 +133,9 @@ img.max-width {
 }
 
 @media (max-width: 576px) {
+  .form-margin {
+    flex-wrap: wrap;
+  }
   .select-collapse {
     margin-bottom: 8px !important;
   }
