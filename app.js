@@ -1,14 +1,14 @@
 const express = require("express"),
-      app = express(),
-      bodyParser = require("body-parser"),
-      mongoose = require("mongoose"),
-      flash = require("connect-flash"),
-      passport = require("passport"),
-      LocalStrategy = require("passport-local"),
-      User = require("./models/user"),
-      methodOverride = require("method-override"),
-      dotenv = require('dotenv');
-      dotenv.config();
+    app = express(),
+    bodyParser = require("body-parser"),
+    mongoose = require("mongoose"),
+    flash = require("connect-flash"),
+    passport = require("passport"),
+    LocalStrategy = require("passport-local"),
+    User = require("./models/user"),
+    methodOverride = require("method-override"),
+    dotenv = require('dotenv');
+dotenv.config();
 
 const seasonRoutes = require("./routes/season");
 const userRoutes = require("./routes/user");
