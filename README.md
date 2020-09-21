@@ -1,6 +1,6 @@
 # Anidex
 
->Anidex is a unofficial MyAnimeList.net client
+Anidex is a unofficial MyAnimeList.net client
 
 ## Technologies Used
 
@@ -36,7 +36,7 @@
 ![Top Manga](screenshots/topmanga.png?raw=true)
 ## Current Season
 ![Current Season](screenshots/currentseason.png?raw=true)
-### Search
+## Search
 ![Search](screenshots/search2.png?raw=true)
 ## Anime Data
 ![Anime Data](screenshots/animedata1.png?raw=true)
