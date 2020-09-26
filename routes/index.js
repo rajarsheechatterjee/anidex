@@ -18,7 +18,7 @@ function apiCall(reqOps) {
 }
 
 const currentSeason = {
-    url: "https://api.jikan.moe/v3/season/2020/summer",
+    url: "https://api.jikan.moe/v3/season/",
     headers: {
         'Identifier': 'identifier'
     }
