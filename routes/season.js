@@ -7,7 +7,7 @@ const request = require("request");
  */
 
 router.get("/season/2020/fall", (req, res) => {
-    const season_url = "https://api.jikan.moe/v3/season/2020/fall";
+    const season_url = "https://api.jikan.moe/v3/season/2021/winter";
     request(season_url, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             const data = JSON.parse(body);
