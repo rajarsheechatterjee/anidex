@@ -5,7 +5,8 @@ nav.navbar {
 
 .bg-light {
     background-color: #f8f9fa;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 5px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        0 1px 5px rgba(0, 0, 0, 0.075);
 }
 
 @media (min-width: 992px) {
@@ -34,10 +35,12 @@ nav.navbar .container {
     margin-left: auto;
 }
 
-.form-control, .dropdown-menu {
+.form-control,
+.dropdown-menu {
     font-size: 0.875rem;
 }
 
-.btn-info, .btn-light {
+.btn-info,
+.btn-light {
     font-size: 0.875rem;
 }

@@ -6,7 +6,7 @@ const request = require("request");
  * Returns anime of the current season
  */
 
-router.get("/season/2020/fall", (req, res) => {
+router.get("/season/2021/winter", (req, res) => {
     const season_url = "https://api.jikan.moe/v3/season/2021/winter";
     request(season_url, function (error, response, body) {
         if (!error && response.statusCode == 200) {
