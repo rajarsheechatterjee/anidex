@@ -8,16 +8,17 @@ const User = require("../models/user");
  */
 
 router.get("/login", (req, res) => {
-  res.render("login");
+    res.render("login");
 });
 
 router.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/top/anime/1",
-    failureRedirect: "/login",
-  }),
-  (req, res) => {}
+    "/login",
+    passport.authenticate("local", {
+        successRedirect: "/top/anime/1",
+        failureRedirect: "/login",
+        failureFlash: true,
+    }),
+    (req, res) => {}
 );
 
 /**
@@ -25,23 +26,23 @@ router.post(
  */
 
 router.get("/register", (req, res) => {
-  res.render("register");
+    res.render("register");
 });
 
 router.post("/register", (req, res) => {
-  const newUser = new User({
-    username: req.body.username,
-  });
-
-  User.register(newUser, req.body.password, function (err, user) {
-    if (err) {
-      console.log(err);
-      return res.render("register");
-    }
-    passport.authenticate("local")(req, res, function () {
-      res.redirect("/top/anime/1");
+    const newUser = new User({
+        username: req.body.username,
     });
-  });
+
+    User.register(newUser, req.body.password, function (err, user) {
+        if (err) {
+            console.log(err);
+            return res.render("register");
+        }
+        passport.authenticate("local")(req, res, function () {
+            res.redirect("/top/anime/1");
+        });
+    });
 });
 
 /**
@@ -49,8 +50,8 @@ router.post("/register", (req, res) => {
  */
 
 router.get("/logout", (req, res) => {
-  req.logout();
-  res.redirect("/index");
+    req.logout();
+    res.redirect("/index");
 });
 
 module.exports = router;
