@@ -1,6 +1,6 @@
 # Anidex
 
-Anidex is a unofficial MyAnimeList.net client
+Anidex is a MyAnimeList.net client
 
 ## Technologies Used
 
